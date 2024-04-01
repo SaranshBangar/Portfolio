@@ -62,7 +62,7 @@ export const projects = [
 
 const Skills = () => {
   return (
-    <div className="max-w-5xl mx-auto px-8">
+    <div className="max-w-5xl mx-auto px-8 max-sm:-mt-32">
       <HoverEffect items={projects} />
     </div>
   );

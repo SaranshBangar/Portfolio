@@ -7,7 +7,7 @@ const Header = () => {
     <>
         <div className="h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md max-sm:h-[360px]">
             <Spotlight
-                className="-top-40 left-0 md:left-60 md:-top-20 max-sm:fixed"
+                className="-top-40 left-0 md:left-60 md:-top-20"
                 fill="white"
             />
             <>

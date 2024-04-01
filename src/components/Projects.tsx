@@ -4,7 +4,7 @@ import { FaGithub } from "react-icons/fa";
 const Projects = () => {
   const imageUrl1 = "/car_image.jpg";
   const imageUrl2 = "/nike_image.jpg";
-  const imageUrl3 = "/ideaclinic_image.png";
+  const imageUrl3 = "/forum_image.jpg";
   const imageUrl4 = "/blog_image.jpg";
   return (
     <section className="-mt-16 max-sm:-mt-12 w-[52%]">
