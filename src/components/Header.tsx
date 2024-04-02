@@ -5,17 +5,17 @@ import { SparklesCore } from './ui/Sparkles'
 const Header = () => {
   return (
     <>
-        <div className="h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md max-sm:h-[360px]">
+        <div className="h-[40rem] w-full bg-black flex flex-col items-center justify-center overflow-hidden rounded-md max-sm:h-[380px]">
             <Spotlight
                 className="-top-40 left-0 md:left-60 md:-top-20"
                 fill="white"
             />
             <>
-                <h1 className="text-5xl max-sm:text-4xl md:text-7xl lg:text-9xl font-bold text-center text-white relative z-10">
+                <h1 className="text-5xl max-sm:text-5xl md:text-7xl lg:text-9xl font-bold text-center text-white relative z-10 max-[375px]:text-4xl">
                     <span>Saransh</span>
                     <span>Bangar</span>
                 </h1>
-                <div className="w-[90%] h-24 relative z-[0]">
+                <div className="w-[90%] h-24 relative z-[0] max-sm:h-[75px]">
                     <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-[2px] w-3/4 blur-sm" />
                     <div className="absolute inset-x-20 top-0 bg-gradient-to-r from-transparent via-indigo-500 to-transparent h-px w-3/4" />
                     <div className="absolute inset-x-60 top-0 bg-gradient-to-r from-transparent via-sky-500 to-transparent h-[5px] w-1/4 blur-sm" />

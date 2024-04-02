@@ -1,4 +1,4 @@
-import { ContactForm } from "@/components/ContactForm";
+import DownloadButton from "@/components/DownloadButton";
 import Header from "@/components/Header";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
@@ -15,7 +15,7 @@ export default function Home() {
             <Skills />
           </div>
           <div>
-            <ContactForm />
+            <DownloadButton />
           </div>
         </div>
     </main>
