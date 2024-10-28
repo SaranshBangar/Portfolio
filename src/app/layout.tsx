@@ -1,30 +1,32 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import SocialLinks from "@/components/SocialLinks";
-import { Analytics } from "@vercel/analytics/react";
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import { ThemeProvider } from "@/components/theme-provider"
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: "Saransh Bangar",
-  description: "Frontend Software Developer",
-};
+  title: 'Saransh Bangar - Resume',
+  description: 'Professional resume of Saransh Bangar, Full Stack Developer',
+}
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="relative w-full flex items-center justify-center">
-          <SocialLinks />
-        </div>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
-      <Analytics />
     </html>
-  );
+  )
 }
