@@ -104,7 +104,6 @@ export default function Resume() {
     },
   ];
 
-
   const skills = [
     "React",
     "Next.js",
@@ -115,7 +114,8 @@ export default function Resume() {
     "HTML",
     "CSS",
     "Tailwind",
-    "C/C++",
+    "C",
+    "C++",
     "MongoDB",
     "MySQL",
     "PostgreSQL",
@@ -164,7 +164,7 @@ export default function Resume() {
     setIsChangingTheme(true);
     setTimeout(() => {
       setTheme(theme === "light" ? "dark" : "light");
-      setTimeout(() => setIsChangingTheme(false), 500);
+      setTimeout(() => setIsChangingTheme(false), 400);
     }, 300);
   };
 
@@ -214,7 +214,7 @@ export default function Resume() {
               clipPath: `circle(0% at ${themeChangePosition.x}px ${themeChangePosition.y}px)`,
             }}
             animate={{
-              clipPath: `circle(150% at ${themeChangePosition.x}px ${themeChangePosition.y}px)`,
+              clipPath: `circle(250% at ${themeChangePosition.x}px ${themeChangePosition.y}px)`,
             }}
             exit={{
               clipPath: `circle(0% at ${themeChangePosition.x}px ${themeChangePosition.y}px)`,
