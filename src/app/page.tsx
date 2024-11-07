@@ -13,6 +13,7 @@ import {
   Linkedin,
   Mail,
   Globe,
+  FileUser,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -28,6 +29,9 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
+import { SiLeetcode } from "react-icons/si";
+import { ConfettiButton } from "@/components/ui/confetti";
+
 
 export default function Resume() {
   const { theme, setTheme } = useTheme();
@@ -142,19 +146,29 @@ export default function Resume() {
 
   const socialLinks = [
     {
-      icon: <Github className="w-5 h-5" />,
+      icon: <FileUser className="size-5" />,
+      href: "https://rxresu.me/saranshbangad/software-developer",
+      label: "LeetCode",
+    },
+    {
+      icon: <Github className="size-5" />,
       href: "https://github.com/SaranshBangar",
       label: "GitHub",
     },
     {
-      icon: <Linkedin className="w-5 h-5" />,
+      icon: <Linkedin className="size-5" />,
       href: "https://www.linkedin.com/in/saransh-bangar/",
       label: "LinkedIn",
     },
     {
-      icon: <Mail className="w-5 h-5" />,
+      icon: <Mail className="size-5" />,
       href: "mailto:saranshbangad@gmail.com",
       label: "Email",
+    },
+    {
+      icon: <SiLeetcode className="size-5" />,
+      href: "https://leetcode.com/u/SaranshBangar/",
+      label: "LeetCode",
     },
   ];
 
@@ -172,7 +186,15 @@ export default function Resume() {
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <div className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b">
         <header className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold">{`</>`}</h1>
+          <ConfettiButton
+            options={{
+              get angle() {
+                return Math.random() * 360;
+              },
+            }}
+          >
+            <h1 className="text-2xl font-bold">{`</>`}</h1>
+          </ConfettiButton>
           <div className="flex items-center space-x-4">
             {socialLinks.map((link, index) => (
               <a
