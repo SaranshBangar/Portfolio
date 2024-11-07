@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "next-themes";
 import {
@@ -31,6 +31,7 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { SiLeetcode } from "react-icons/si";
 import { ConfettiButton } from "@/components/ui/confetti";
+import { toast } from 'react-hot-toast';
 
 
 export default function Resume() {
@@ -41,6 +42,45 @@ export default function Resume() {
     x: 0,
     y: 0,
   });
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      toast.success('Message sent successfully!');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
   const experiences = [
     {
@@ -184,6 +224,7 @@ export default function Resume() {
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
+
       <div className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b">
         <header className="container mx-auto px-4 py-4 flex justify-between items-center">
           <ConfettiButton
@@ -264,6 +305,7 @@ export default function Resume() {
 
       <main className="container mx-auto px-4 py-8">
         <div className="grid gap-8 md:grid-cols-[300px_1fr]">
+
           <aside className="md:sticky md:top-24 md:h-[calc(100vh-6rem)] overflow-y-auto">
             <Card className="mb-8">
               <CardHeader>
@@ -282,6 +324,7 @@ export default function Resume() {
                       width={100}
                       height={100}
                       className="size-24 rounded-full object-cover"
+                      priority={true}
                     />
                   </AvatarFallback>
                 </Avatar>
@@ -311,6 +354,7 @@ export default function Resume() {
               </CardContent>
             </Card>
           </aside>
+
           <section>
             <Tabs
               defaultValue="experience"
@@ -367,6 +411,7 @@ export default function Resume() {
                       </CardContent>
                     </Card>
                   </TabsContent>
+
                   <TabsContent value="projects" className="mt-4">
                     <Card>
                       <CardHeader>
@@ -426,6 +471,7 @@ export default function Resume() {
                       </CardContent>
                     </Card>
                   </TabsContent>
+
                   <TabsContent value="testimonials" className="mt-4">
                     <Card>
                       <CardHeader>
@@ -463,51 +509,59 @@ export default function Resume() {
                         <CardTitle>Contact Me</CardTitle>
                       </CardHeader>
                       <CardContent>
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
                           <div className="grid grid-cols-2 gap-4">
                             <div className="space-y-2">
-                              <label
-                                htmlFor="name"
-                                className="text-sm font-medium"
-                              >
+                              <label htmlFor="name" className="text-sm font-medium">
                                 Name
                               </label>
-                              <Input id="name" placeholder="Your name" />
+                              <Input
+                                id="name"
+                                placeholder="Your name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                required
+                              />
                             </div>
                             <div className="space-y-2">
-                              <label
-                                htmlFor="email"
-                                className="text-sm font-medium"
-                              >
+                              <label htmlFor="email" className="text-sm font-medium">
                                 Email
                               </label>
                               <Input
                                 id="email"
                                 type="email"
                                 placeholder="Your email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                required
                               />
                             </div>
                           </div>
                           <div className="space-y-2">
-                            <label
-                              htmlFor="message"
-                              className="text-sm font-medium"
-                            >
+                            <label htmlFor="message" className="text-sm font-medium">
                               Message
                             </label>
                             <Textarea
                               id="message"
                               placeholder="Your message"
                               rows={4}
+                              value={formData.message}
+                              onChange={handleChange}
+                              required
                             />
                           </div>
-                          <Button type="submit" className="w-full">
-                            Send Message
+                          <Button
+                            type="submit"
+                            className="w-full"
+                            disabled={loading}
+                          >
+                            {loading ? 'Sending...' : 'Send Message'}
                           </Button>
                         </form>
                       </CardContent>
                     </Card>
                   </TabsContent>
+
                 </motion.div>
               </AnimatePresence>
             </Tabs>
