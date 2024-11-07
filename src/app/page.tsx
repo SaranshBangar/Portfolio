@@ -188,11 +188,11 @@ export default function Resume() {
         <header className="container mx-auto px-4 py-4 flex justify-between items-center">
           <ConfettiButton
             options={{
-              get angle() {
-                return Math.random() * 360;
-              },
-            }}
-          >
+                get angle() {
+                return 270 + Math.random() * 90;
+                },
+              }}
+              >
             <h1 className="text-2xl font-bold">{`</>`}</h1>
           </ConfettiButton>
           <div className="flex items-center space-x-4">
