@@ -201,11 +201,6 @@ export default function Resume() {
       label: "LinkedIn",
     },
     {
-      icon: <Mail className="size-5" />,
-      href: "mailto:saranshbangad@gmail.com",
-      label: "Email",
-    },
-    {
       icon: <SiLeetcode className="size-5" />,
       href: "https://leetcode.com/u/SaranshBangar/",
       label: "LeetCode",
