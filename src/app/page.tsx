@@ -69,7 +69,9 @@ export default function Resume() {
       toast.success('Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (error) {
-      toast.error('Failed to send message. Please try again.');
+      toast.error('Failed to send message. Please mail on saranshbangad@gmailcom', {
+        duration: 5000,
+      });
     } finally {
       setLoading(false);
     }
