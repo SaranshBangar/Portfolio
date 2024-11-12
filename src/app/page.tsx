@@ -123,6 +123,15 @@ export default function Resume() {
     },
     {
       id: 2,
+      name: "StoreIt",
+      description:
+        "A fullstack cloud storage service like Google Drive and Dropbox",
+      tags: ["Next.js", "TypeScript", "Tailwind CSS", "Appwrite"],
+      liveLink: "https://store-it-saransh-bangar.vercel.app/",
+      githubRepo: "https://github.com/SaranshBangar/StoreIt",
+    },
+    {
+      id: 3,
       name: "IdeaClinic",
       description:
         "Website developed for DEI, SRMIST, to support their innovation and entrepreneurship program.",
@@ -131,7 +140,7 @@ export default function Resume() {
       githubRepo: "https://github.com/founder-srm/ideaclinic_forum",
     },
     {
-      id: 3,
+      id: 4,
       name: "GPU Dash",
       description:
         "A real-time web portal application for displaying GPU and CPU data, utilizing Rust backend.",
@@ -140,7 +149,7 @@ export default function Resume() {
       githubRepo: "https://github.com/Tom-Dick-Harry/gpu-dash-tdh",
     },
     {
-      id: 4,
+      id: 5,
       name: "DevTinder",
       description:
         "A functioning clone of Tinder made exclusively for developers",
