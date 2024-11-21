@@ -176,7 +176,7 @@ const CustomBot: React.FC<{
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm mx-2"
       onClick={onClose}
     >
       <Card
@@ -191,6 +191,14 @@ const CustomBot: React.FC<{
         </CardHeader>
 
         <CardContent className="flex-1 overflow-y-auto p-4">
+          {messages.length === 0 && (
+            <div className="flex flex-col justify-center items-center h-full">
+              <Bot className="w-12 h-12 text-secondary-foreground animate-bounce" />
+              <div className="text-center text-lg text-secondary-foreground">
+                Ask me about Saransh's background, career, or projects!
+              </div>
+            </div>
+          )}
           <div className="space-y-4">
             {messages.map((message) => (
               <div
