@@ -6,7 +6,6 @@ import { useTheme } from "next-themes";
 import {
   Moon,
   Sun,
-  Briefcase,
   Code,
   Star,
   Github,
@@ -31,8 +30,6 @@ import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { SiLeetcode } from "react-icons/si";
 import { ConfettiButton } from "@/components/ui/confetti";
-import { toast } from 'react-hot-toast';
-
 
 export default function Resume() {
   const { theme, setTheme } = useTheme();
@@ -42,47 +39,6 @@ export default function Resume() {
     x: 0,
     y: 0,
   });
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to send message');
-      }
-
-      toast.success('Message sent successfully!');
-      setFormData({ name: '', email: '', message: '' });
-    } catch (error) {
-      toast.error('Failed to send message. Please mail on saranshbangad@gmailcom', {
-        duration: 5000,
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
-  };
 
   const experiences = [
     {
@@ -90,7 +46,8 @@ export default function Resume() {
       role: "Fullstack Developer Intern",
       company: "Fuelemy",
       period: "Jul 2024 - Present",
-      description: "Made mulitple landing pages and dashboard with React and JavaScript",
+      description:
+        "Made mulitple landing pages and dashboard with React and JavaScript",
       icon: <Code className="w-6 h-6" />,
     },
     {
@@ -98,7 +55,8 @@ export default function Resume() {
       role: "Associate Technical Lead",
       company: "Founders Club, SRMIST",
       period: "Oct 2023 - Present",
-      description: "Worked along side a team of 3 to develop multiple projects for the college",
+      description:
+        "Worked along side a team of 3 to develop multiple projects for the college",
       icon: <Star className="w-6 h-6" />,
     },
     {
@@ -106,7 +64,8 @@ export default function Resume() {
       role: "Frontend Engineer Intern",
       company: "Falcon AI",
       period: "Jun 2024 - Aug 2024",
-      description: "Developed company landing and dashboard pages with Next and TypeScript",
+      description:
+        "Developed company landing and dashboard pages with Next and TypeScript",
       icon: <Code className="w-6 h-6" />,
     },
   ];
@@ -216,6 +175,11 @@ export default function Resume() {
       href: "https://leetcode.com/u/SaranshBangar/",
       label: "LeetCode",
     },
+    {
+      icon: <Mail className="size-5" />,
+      href: "mailto:saranshbangad@gmail.com",
+      label: "Email",
+    },
   ];
 
   const handleThemeChange = (event: React.MouseEvent) => {
@@ -230,16 +194,15 @@ export default function Resume() {
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-
       <div className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b">
         <header className="container mx-auto px-4 py-4 flex justify-between items-center">
           <ConfettiButton
             options={{
-                get angle() {
+              get angle() {
                 return 270 + Math.random() * 90;
-                },
-              }}
-              >
+              },
+            }}
+          >
             <h1 className="text-2xl font-bold">{`</>`}</h1>
           </ConfettiButton>
           <div className="flex items-center space-x-4">
@@ -305,13 +268,14 @@ export default function Resume() {
           <h1 className="text-4xl md:text-6xl font-bold text-black mb-4 dark:text-white">
             Saransh Bangar
           </h1>
-          <p className="text-xl md:text-2xl text-black dark:text-white">Full Stack Developer</p>
+          <p className="text-xl md:text-2xl text-black dark:text-white">
+            Full Stack Developer
+          </p>
         </motion.div>
       </section>
 
       <main className="container mx-auto px-4 py-8">
         <div className="grid gap-8 md:grid-cols-[300px_1fr]">
-
           <aside className="md:sticky md:top-24 md:h-[calc(100vh-6rem)] overflow-y-auto">
             <Card className="mb-8">
               <CardHeader>
@@ -367,11 +331,10 @@ export default function Resume() {
               className="w-full"
               onValueChange={setActiveTab}
             >
-              <TabsList className="grid w-full grid-cols-4">
+              <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="projects">Projects</TabsTrigger>
                 <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
-                <TabsTrigger value="contact">Contact</TabsTrigger>
               </TabsList>
               <AnimatePresence mode="wait">
                 <motion.div
@@ -508,66 +471,6 @@ export default function Resume() {
                       </CardContent>
                     </Card>
                   </TabsContent>
-
-                  <TabsContent value="contact" className="mt-4">
-                    <Card>
-                      <CardHeader>
-                        <CardTitle>Contact Me</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <form className="space-y-4" onSubmit={handleSubmit}>
-                          <div className="grid grid-cols-2 gap-4">
-                            <div className="space-y-2">
-                              <label htmlFor="name" className="text-sm font-medium">
-                                Name
-                              </label>
-                              <Input
-                                id="name"
-                                placeholder="Your name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                              />
-                            </div>
-                            <div className="space-y-2">
-                              <label htmlFor="email" className="text-sm font-medium">
-                                Email
-                              </label>
-                              <Input
-                                id="email"
-                                type="email"
-                                placeholder="Your email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                              />
-                            </div>
-                          </div>
-                          <div className="space-y-2">
-                            <label htmlFor="message" className="text-sm font-medium">
-                              Message
-                            </label>
-                            <Textarea
-                              id="message"
-                              placeholder="Your message"
-                              rows={4}
-                              value={formData.message}
-                              onChange={handleChange}
-                              required
-                            />
-                          </div>
-                          <Button
-                            type="submit"
-                            className="w-full"
-                            disabled={loading}
-                          >
-                            {loading ? 'Sending...' : 'Send Message'}
-                          </Button>
-                        </form>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
-
                 </motion.div>
               </AnimatePresence>
             </Tabs>
@@ -577,4 +480,3 @@ export default function Resume() {
     </div>
   );
 }
-
