@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
   "version": "0.1.0",
-  "type": "module",
+  "type": "commonjs",
   "private": true,
   "scripts": {
     "dev": "next dev",
