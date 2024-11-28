@@ -1,4 +1,4 @@
-import MetaData from "@/components/MetaData";
+import MetaData from "@/components/metadata";
 import RootLayout from "./layout";
 
 export default function MetadataWrapper({
