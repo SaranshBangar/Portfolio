@@ -6,7 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Sparkles } from "lucide-react";
 import CustomBot from "@/components/custom-bot";
 import { useState } from "react";
-import MetaData from "@/components/metadata";
+import CustomHead from "@/components/metadata";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +23,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <MetaData />
+      <CustomHead />
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"
