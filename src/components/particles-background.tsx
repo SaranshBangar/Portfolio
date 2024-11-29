@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
 import { useTheme } from "next-themes";
-import { color } from "framer-motion";
+import { color, distance } from "framer-motion";
 
 interface ParticlesBackgroundProps {
   id: string;
@@ -40,6 +40,10 @@ const ParticlesBackground = ({ id, className }: ParticlesBackgroundProps) => {
             enable: true,
             mode: "grab",
           },
+          onClick: {
+            enable: true,
+            mode: "repulse",
+          },
         },
         modes: {
           push: {
@@ -51,17 +55,21 @@ const ParticlesBackground = ({ id, className }: ParticlesBackgroundProps) => {
               opacity: theme === "dark" ? 0.5 : 0.3,
             },
           },
+          repulse: {
+            distance: 200,
+            duration: 0.4,
+          },
         },
       },
       particles: {
         color: {
-          value: theme === "dark" ? "#FFD700" : "#CCAC00",
+          value: theme === "dark" ? "#FFD700" : "#000000",
         },
         links: {
-          color: "#FFD700",
+          color: theme === "dark" ? "#FFD700" : "#0000CC",
           distance: 150,
           enable: true,
-          opacity: theme === "dark" ? 0.3 : 0.5,
+          opacity: theme === "dark" ? 0.4 : 0.5,
           width: 1,
         },
         move: {
