@@ -1,5 +1,5 @@
-import MetaData from "@/components/metadata";
 import RootLayout from "./layout";
+import CustomHead from "@/components/metadata";
 
 export default function MetadataWrapper({
   children,
@@ -8,7 +8,7 @@ export default function MetadataWrapper({
 }) {
   return (
     <html lang="en">
-      <MetaData />
+      <CustomHead />
       <RootLayout>{children}</RootLayout>
     </html>
   );
