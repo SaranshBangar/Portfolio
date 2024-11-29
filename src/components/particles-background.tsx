@@ -2,12 +2,16 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
+import { useTheme } from "next-themes";
+import { color } from "framer-motion";
 
 interface ParticlesBackgroundProps {
   id: string;
+  className: string;
 }
 
-const ParticlesBackground = ({ id }: ParticlesBackgroundProps) => {
+const ParticlesBackground = ({ id, className }: ParticlesBackgroundProps) => {
+  const { theme } = useTheme();
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -22,16 +26,16 @@ const ParticlesBackground = ({ id }: ParticlesBackgroundProps) => {
     () => ({
       background: {
         color: {
-          value: "transparent", // Changed to transparent
+          value: "transparent",
         },
+      },
+      fullScreen: {
+        enable: false,
+        zIndex: 1,
       },
       fpsLimit: 120,
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: "push",
-          },
           onHover: {
             enable: true,
             mode: "grab",
@@ -42,46 +46,46 @@ const ParticlesBackground = ({ id }: ParticlesBackgroundProps) => {
             quantity: 4,
           },
           grab: {
-            distance: 150,
+            distance: 200,
             links: {
-              opacity: 0.5,
+              opacity: theme === "dark" ? 0.5 : 0.3,
             },
           },
         },
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: theme === "dark" ? "#FFD700" : "#CCAC00",
         },
         links: {
-          color: "#ffffff",
+          color: "#FFD700",
           distance: 150,
           enable: true,
-          opacity: 0.3,
+          opacity: theme === "dark" ? 0.3 : 0.5,
           width: 1,
         },
         move: {
-          direction: "none",
+          direction: "top",
           enable: true,
           outModes: {
             default: "bounce",
           },
           random: true,
-          speed: 1,
+          speed: 2,
           straight: false,
         },
         number: {
           density: {
             enable: true,
-            area: 800,
+            area: 600,
           },
-          value: 80,
+          value: 250,
         },
         opacity: {
-          value: 0.5,
+          value: theme === "dark" ? 0.5 : 0.3,
         },
         shape: {
-          type: "circle",
+          type: "edge",
         },
         size: {
           value: { min: 1, max: 3 },
@@ -89,11 +93,11 @@ const ParticlesBackground = ({ id }: ParticlesBackgroundProps) => {
       },
       detectRetina: true,
     }),
-    []
+    [theme]
   );
 
   if (init) {
-    return <Particles id={id} options={options} />;
+    return <Particles id={id} options={options} className={className} />;
   }
 
   return null;

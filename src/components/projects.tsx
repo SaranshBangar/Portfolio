@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { motion } from "motion/react";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Github, Globe } from "lucide-react";
@@ -62,12 +61,7 @@ const Projects = () => {
       <CardContent>
         <div className="grid gap-4 sm:grid-cols-2">
           {projects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+            <div key={project.id}>
               <Card className="h-full flex flex-col">
                 <CardHeader>
                   <CardTitle>{project.name}</CardTitle>
@@ -107,7 +101,7 @@ const Projects = () => {
                   </Button>
                 </CardContent>
               </Card>
-            </motion.div>
+            </div>
           ))}
         </div>
       </CardContent>

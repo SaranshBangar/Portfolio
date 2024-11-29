@@ -9,6 +9,7 @@ import Experience from "@/components/experience";
 import SideCard from "@/components/side-card";
 import NavBar from "@/components/navbar";
 import Header from "@/components/header";
+import ParticlesBackground from "@/components/particles-background";
 
 export default function Resume() {
   const [activeTab, setActiveTab] = useState("experience");
@@ -20,10 +21,16 @@ export default function Resume() {
       </div>
 
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <ParticlesBackground
+            id="particles"
+            className="absolute inset-0 h-full w-full"
+          />
+        </div>
         <Header />
       </section>
 
-      <main className="container mx-auto px-4 py-8">
+      <main className={`container mx-auto px-4 py-8 z-50`}>
         <div className="grid gap-8 md:grid-cols-[300px_1fr]">
           <aside className="md:sticky md:top-24 md:h-[calc(100vh-6rem)] overflow-y-auto">
             <SideCard />

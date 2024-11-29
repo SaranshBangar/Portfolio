@@ -1,7 +1,5 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-// import { motion } from "motion/react";
-import { motion } from "framer-motion";
 import { Code, Star } from "lucide-react";
 
 const Experience = () => {
@@ -43,13 +41,7 @@ const Experience = () => {
       <CardContent>
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
           {experiences.map((exp, index) => (
-            <motion.li
-              key={exp.id}
-              className="mb-10 ml-6"
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
+            <li key={exp.id} className="mb-10 ml-6">
               <span className="absolute flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full -left-5">
                 {exp.icon}
               </span>
@@ -61,7 +53,7 @@ const Experience = () => {
                 {exp.company}
               </p>
               <p className="text-base font-normal">{exp.description}</p>
-            </motion.li>
+            </li>
           ))}
         </ol>
       </CardContent>

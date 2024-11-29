@@ -4,16 +4,9 @@ import { Button } from "./ui/button";
 import { FileUser, Github, Linkedin, Mail, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SiLeetcode } from "react-icons/si";
-import { AnimatePresence } from "framer-motion";
-import { motion } from "motion/react";
 
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
-  const [isChangingTheme, setIsChangingTheme] = useState(false);
-  const [themeChangePosition, setThemeChangePosition] = useState({
-    x: 0,
-    y: 0,
-  });
 
   const socialLinks = [
     {
@@ -44,38 +37,10 @@ const NavBar = () => {
   ];
 
   const handleThemeChange = (event: React.MouseEvent) => {
-    const { clientX, clientY } = event;
-    setThemeChangePosition({ x: clientX, y: clientY });
-    setIsChangingTheme(true);
     setTimeout(() => {
       setTheme(theme === "light" ? "dark" : "light");
-      setTimeout(() => setIsChangingTheme(false), 400);
     }, 300);
   };
-
-  <AnimatePresence>
-    {isChangingTheme && (
-      <motion.div
-        className="fixed inset-0 z-50 transition-colors duration-500"
-        style={{
-          backgroundColor:
-            theme === "light"
-              ? "var(--background-light)"
-              : "var(--background-dark)",
-        }}
-        initial={{
-          clipPath: `circle(0% at ${themeChangePosition.x}px ${themeChangePosition.y}px)`,
-        }}
-        animate={{
-          clipPath: `circle(250% at ${themeChangePosition.x}px ${themeChangePosition.y}px)`,
-        }}
-        exit={{
-          clipPath: `circle(0% at ${themeChangePosition.x}px ${themeChangePosition.y}px)`,
-        }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-      />
-    )}
-  </AnimatePresence>;
 
   return (
     <header className="container mx-auto px-4 py-4 flex justify-between items-center">

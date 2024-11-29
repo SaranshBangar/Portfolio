@@ -22,7 +22,7 @@ export default function RootLayout({
   };
 
   return (
-    <>
+    <html lang="en">
       <MetaData />
       <body className={inter.className}>
         <ThemeProvider
@@ -44,6 +44,6 @@ export default function RootLayout({
           </div>
         </ThemeProvider>
       </body>
-    </>
+    </html>
   );
 }
