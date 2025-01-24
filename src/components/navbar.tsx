@@ -11,8 +11,8 @@ const NavBar = () => {
   const socialLinks = [
     {
       icon: <FileUser className="size-5" />,
-      href: "https://rxresu.me/saranshbangad/software-developer",
-      label: "LeetCode",
+      href: "https://drive.google.com/file/d/1YF-QoyNdoHQheEkRYoYbCKRA7F3HfX76/view?usp=sharing",
+      label: "Resume",
     },
     {
       icon: <Github className="size-5" />,
