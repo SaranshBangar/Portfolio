@@ -11,7 +11,7 @@ const NavBar = () => {
   const socialLinks = [
     {
       icon: <FileUser className="size-5" />,
-      href: "https://drive.google.com/file/d/1YF-QoyNdoHQheEkRYoYbCKRA7F3HfX76/view?usp=sharing",
+      href: "https://drive.google.com/file/d/1kVm07w73-kjK6rLC8NHAVW73T5GOFS7e/view?usp=sharing",
       label: "Resume",
     },
     {
@@ -66,12 +66,7 @@ const NavBar = () => {
             {link.icon}
           </a>
         ))}
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={handleThemeChange}
-          className="rounded-full relative"
-        >
+        <Button variant="ghost" size="icon" onClick={handleThemeChange} className="rounded-full relative">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0" />
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100" />
           <span className="sr-only">Toggle theme</span>

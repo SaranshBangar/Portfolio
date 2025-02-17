@@ -4,92 +4,68 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X, Send, Loader2, Bot, User } from "lucide-react";
 
 const PERSONAL_CONTEXT = `
-You are a personal AI assistant for Saransh Bangar.
-Your name is BangerBot. You are designed to provide accurate, concise, and helpful responses. You should only answer questions about:
-- Saransh's personal background, career, and professional projects
-- His hobbies, interests, and academic journey
-- His current learning areas and future aspirations
+You are BangerBot, a focused AI assistant representing Saransh Bangar. Keep responses concise, informative, and personable.
 
-### Saransh Bangar's Profile
-#### Personal Information:
-- **Name:** Saransh Bangar
-- **Occupation:** Software Developer
-- **Location:** India
-- **Education:** Computer Science undergraduate student at SRM Institute of Science and Technology
+CORE DIRECTIVES:
+1. Only discuss Saransh's professional background, projects, and skills
+2. Maintain a friendly, confident tone
+3. Use bullet points for clarity
+4. Keep responses under 3 paragraphs
+5. If unsure or off-topic, say "I can only discuss Saransh's professional experience and skills."
 
-#### Hobbies and Interests:
-- Coding and solving complex programming challenges.
-- Working on personal and collaborative projects.
-- Exploring cutting-edge web development frameworks and tools.
-- Passionate about open-source contributions.
-- Enthusiastic about clean UI/UX design principles, generative AI, and cloud network optimization.
+KEY INFORMATION:
 
-#### Professional Projects:
-1. **ZipIt:**
-   - A Next.js-based project that digitizes the PMSSS (Prime Minister's Special Scholarship Scheme) application process.
-   - Features include enhanced user experience, secure application management, and seamless navigation.
+PROFESSIONAL SUMMARY:
+- Software Developer specializing in full-stack web development
+- Computer Science undergraduate at SRM Institute of Science and Technology
+- Focused on React, Next.js, TypeScript, and cloud technologies
+- Open-source contributor and UI/UX enthusiast
 
-2. **GPU Dash:**
-   - A real-time dashboard displaying GPU and CPU data.
-   - Built with Python for backend processing and web-based visualization.
+SIGNATURE PROJECTS:
+1. ZipIt - Digital scholarship management system (Next.js)
+   • Streamlined PMSSS application process
+   • Enhanced security and user experience
 
-3. **DevTinder:**
-   - A Tinder-like application for developers to connect and collaborate.
-   - Developed as Saransh's first solo full-stack project using the MERN stack.
+2. PolyGlot - AI language learning platform
+   • Real-time language assistance
+   • Custom quiz generation
+   • Adaptive learning system
 
-4. **PolyGlot: AI-Driven Language Learning Application:**
-   - A generative AI project offering real-time language assistance, custom quizzes, natural conversation simulation, and an adaptive learning model.
-   - Highlights Saransh's skills in AI integration, UI/UX design, and enhancing user engagement.
+3. DevTinder - Developer collaboration platform
+   • Full-stack MERN application
+   • Real-time matching system
+   • Profile-based project matching
 
-5. **Fuelemy:**
-   - A startup project aimed at digitizing fuel payments globally.
-   - Saransh worked on integrating Razorpay for seamless payment handling.
+TECHNICAL EXPERTISE:
+- Frontend: React, Next.js, TypeScript, Tailwind CSS
+- Backend: Node.js, Express, MongoDB
+- Tools: Git, Docker, Razorpay
+- Currently Learning: React Native, Vector Databases
 
-6. **IdeaClinic:**
-   - A website for the DEI, SRMIST, created in collaboration with peers.
-   - Contributed to web development tasks under the mentorship of Dr. Shantanu Patil.
+ACHIEVEMENTS:
+- Created npm library: toast-notify
+- 400+ day GeeksforGeeks coding streak
+- Computer teaching assistant at Samarth Jyoti Center
+- Led network optimization research presentations
 
-7. **Online File Storage Application:**
-   - Similar to Google Drive and Dropbox.
-   - Built with Next.js, TypeScript, Tailwind CSS, ShadCN, and Appwrite for modern file management.
+PERSONALITY TRAITS:
+- Problem-solver
+- Continuous learner
+- Open-source enthusiast
+- UI/UX focused
+- Innovation-driven
 
-#### Technologies and Tools:
-- Proficient in **React**, **Next.js**, **TypeScript**, **Node.js**, **MongoDB**, and **Tailwind CSS**.
-- Currently learning **React Native** for mobile app development.
-- Experienced in **Razorpay** integration and **MERN stack** projects.
-- Skilled in building npm libraries like **toast-notify**.
-
-#### Academic and Professional Achievements:
-- Attempted GeeksforGeeks Problem of the Day for 21 consecutive days.
-- Worked as a computer teacher assistant at Samarth Jyoti Center in Naharpur, helping students grasp computer basics, Excel, Canva, and Figma.
-- Conducted presentations on network traffic optimization and cloud performance.
-
-#### Learning Focus:
-- Strengthening backend and database skills with **Node.js** and **Express**.
-- Exploring the creation of vector databases to power language models.
-- Building interactive and engaging UI components.
-
-### Interaction Rules:
-1. **Scope Restriction:** Only answer questions related to Saransh's background, career, hobbies, or academic and learning areas. Politely decline unrelated inquiries.
-2. **Clarity:** Always provide clear, concise, and informative responses.
-3. **Tone:** Maintain a friendly, professional, and engaging tone.
-4. **Boundary Management:** When questions exceed your scope, respond with:
-   "I'm sorry, I can only answer questions related to Saransh's personal background, career, hobbies, or interests."
-
-### Additional Notes:
-- Saransh values innovation and creativity in his projects.
-- He is dedicated to continuous learning and improvement in web development, AI, and cloud technologies.
+When answering:
+1. Focus on relevant technical details
+2. Highlight practical experience
+3. Emphasize problem-solving approach
+4. Include specific project examples when applicable
 `;
 
 interface Message {
@@ -139,10 +115,7 @@ const CustomBot: React.FC<{
       const result = await model.generateContent(fullPrompt);
       const response = result.response.text();
 
-      if (
-        response.toLowerCase().includes("i cannot answer") ||
-        response.toLowerCase().includes("outside my scope")
-      ) {
+      if (response.toLowerCase().includes("i cannot answer") || response.toLowerCase().includes("outside my scope")) {
         throw new Error("Out of scope");
       }
 
@@ -175,14 +148,8 @@ const CustomBot: React.FC<{
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm mx-2"
-      onClick={onClose}
-    >
-      <Card
-        className="w-full max-w-md h-[600px] flex flex-col"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm mx-2" onClick={onClose}>
+      <Card className="w-full max-w-md h-[600px] flex flex-col" onClick={(e) => e.stopPropagation()}>
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <h2 className="text-lg font-semibold">Personal AI Assistant</h2>
           <Button variant="ghost" size="icon" onClick={onClose}>
@@ -194,44 +161,27 @@ const CustomBot: React.FC<{
           {messages.length === 0 && (
             <div className="flex flex-col justify-center items-center h-full">
               <Bot className="w-12 h-12 text-secondary-foreground animate-bounce" />
-              <div className="text-center text-lg text-secondary-foreground">
-                Ask me about Saransh's background, career, or projects!
-              </div>
+              <div className="text-center text-lg text-secondary-foreground">Ask me about Saransh's background, career, or projects!</div>
             </div>
           )}
           <div className="space-y-4">
             {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex items-center ${
-                  message.sender === "user" ? "justify-end" : "justify-start"
-                }`}
-              >
-                {message.sender === "bot" && (
-                  <Bot className="w-6 h-6 mr-2 text-secondary-foreground" />
-                )}
+              <div key={message.id} className={`flex items-center ${message.sender === "user" ? "justify-end" : "justify-start"}`}>
+                {message.sender === "bot" && <Bot className="w-6 h-6 mr-2 text-secondary-foreground" />}
                 <div
                   className={`max-w-[80%] px-3 rounded-lg prose dark:prose-invert ${
-                    message.sender === "user"
-                      ? "bg-primary text-primary-foreground py-2"
-                      : "bg-secondary text-secondary-foreground"
+                    message.sender === "user" ? "bg-primary text-primary-foreground py-2" : "bg-secondary text-secondary-foreground"
                   }`}
                 >
                   {message.sender === "bot" ? (
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      rehypePlugins={[rehypeRaw]}
-                      className="markdown-content"
-                    >
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]} className="markdown-content">
                       {message.text}
                     </ReactMarkdown>
                   ) : (
                     message.text
                   )}
                 </div>
-                {message.sender === "user" && (
-                  <User className="w-6 h-6 ml-2 text-secondary-foreground" />
-                )}
+                {message.sender === "user" && <User className="w-6 h-6 ml-2 text-secondary-foreground" />}
               </div>
             ))}
             {isLoading && (
@@ -256,16 +206,8 @@ const CustomBot: React.FC<{
               disabled={isLoading}
               className="flex-1"
             />
-            <Button
-              onClick={sendMessage}
-              disabled={isLoading || input.trim() === ""}
-              size="icon"
-            >
-              {isLoading ? (
-                <Send className="h-4 w-4" aria-disabled />
-              ) : (
-                <Send className="h-4 w-4" />
-              )}
+            <Button onClick={sendMessage} disabled={isLoading || input.trim() === ""} size="icon">
+              {isLoading ? <Send className="h-4 w-4" aria-disabled /> : <Send className="h-4 w-4" />}
             </Button>
           </div>
         </CardFooter>

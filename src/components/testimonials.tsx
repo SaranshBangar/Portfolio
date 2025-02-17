@@ -12,12 +12,17 @@ const Testimonials = () => {
     {
       id: 2,
       text: "Working with Saransh was a pleasure. His technical skills are top-notch, and he always goes above and beyond to ensure project success.",
-      author: "Shreyans Bhargava, COO at Fuelemy",
+      author: "Shreyans Bhargava, CEO at Fuelemy",
     },
     {
       id: 3,
       text: "Saransh's ability to solve complex problems is truly remarkable. He's not just a developer, but a valuable asset to any team he's part of.",
       author: "Likhit Ganni, COO at Fuelemy",
+    },
+    {
+      id: 4,
+      text: "Saransh's dedication to his work is commendable. He's always eager to learn and improve, and his passion for coding is truly inspiring.",
+      author: "Akansha Srivastava, CEO at Erino",
     },
   ];
 
@@ -37,12 +42,8 @@ const Testimonials = () => {
             >
               <Card className="w-full">
                 <CardContent className="pt-6">
-                  <blockquote className="text-lg italic mb-4">
-                    "{testimonial.text}"
-                  </blockquote>
-                  <p className="font-semibold text-right">
-                    {testimonial.author}
-                  </p>
+                  <blockquote className="text-lg italic mb-4">"{testimonial.text}"</blockquote>
+                  <p className="font-semibold text-right">{testimonial.author}</p>
                 </CardContent>
               </Card>
             </motion.div>

@@ -1,41 +1,34 @@
 "use client";
 
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Mail, Phone, Share2, Github } from "lucide-react";
 import { Button } from "./ui/button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "./ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 const SideCard = () => {
   const skills = [
-    "React",
-    "Next.js",
-    "Node.js",
-    "Express",
-    "JavaScript",
-    "TypeScript",
     "HTML",
     "CSS",
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
     "Tailwind",
+    "Material UI",
+    "Node.js",
+    "Express",
     "C",
     "C++",
     "MongoDB",
     "MySQL",
     "PostgreSQL",
+    "Git",
     "GitHub",
+    "Docker",
+    "REST API",
   ];
 
   const handleShare = async () => {
@@ -99,19 +92,11 @@ Skills => ${skills.join(", ")}
         <div className="absolute inset-0 z-0" />
         <div className="relative z-10">
           <Avatar className="w-24 h-24 mx-auto mb-4 ring-4 ring-background">
-            <AvatarImage
-              src="/profilePicture.jpg"
-              alt="Saransh Bangar"
-              className="object-cover"
-            />
+            <AvatarImage src="/profilePicture.jpg" alt="Saransh Bangar" className="object-cover" />
             <AvatarFallback>SB</AvatarFallback>
           </Avatar>
-          <CardTitle className="text-2xl font-bold text-center">
-            Saransh Bangar
-          </CardTitle>
-          <CardDescription className="text-center text-primary/80">
-            Full Stack Developer
-          </CardDescription>
+          <CardTitle className="text-2xl font-bold text-center">Saransh Bangar</CardTitle>
+          <CardDescription className="text-center text-primary/80">Full Stack Developer</CardDescription>
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
@@ -120,24 +105,14 @@ Skills => ${skills.join(", ")}
             <TooltipProvider key={index}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={item.onClick}
-                    aria-label={item.label}
-                    asChild={!item.onClick}
-                  >
+                  <Button variant="outline" size="icon" onClick={item.onClick} aria-label={item.label} asChild={!item.onClick}>
                     {item.onClick ? (
                       <item.icon className="h-4 w-4" />
                     ) : (
                       <a
                         href={item.href}
                         target={item.icon === Github ? "_blank" : undefined}
-                        rel={
-                          item.icon === Github
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
+                        rel={item.icon === Github ? "noopener noreferrer" : undefined}
                       >
                         <item.icon className="h-4 w-4" />
                       </a>
@@ -155,11 +130,7 @@ Skills => ${skills.join(", ")}
           <h3 className="font-semibold mb-3 text-lg">Skills</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <Badge
-                key={skill}
-                variant="secondary"
-                className="rounded-full px-3 py-1"
-              >
+              <Badge key={skill} variant="secondary" className="rounded-full px-3 py-1">
                 {skill}
               </Badge>
             ))}
