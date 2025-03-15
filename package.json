@@ -33,7 +33,7 @@
     "dotenv": "^16.4.5",
     "framer-motion": "^11.12.0",
     "lucide-react": "^0.453.0",
-    "motion": "^11.12.0",
+    "motion": "^11.18.2",
     "next": "14.1.4",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.16",

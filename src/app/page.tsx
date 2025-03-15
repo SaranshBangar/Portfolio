@@ -22,10 +22,7 @@ export default function Resume() {
 
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <ParticlesBackground
-            id="particles"
-            className="absolute inset-0 h-full w-full"
-          />
+          <ParticlesBackground id="particles" className="absolute inset-0 h-full w-full" />
         </div>
         <Header />
       </section>
@@ -37,11 +34,7 @@ export default function Resume() {
           </aside>
 
           <section>
-            <Tabs
-              defaultValue="experience"
-              className="w-full"
-              onValueChange={setActiveTab}
-            >
+            <Tabs defaultValue="experience" className="w-full" onValueChange={setActiveTab}>
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="projects">Projects</TabsTrigger>

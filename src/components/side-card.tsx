@@ -29,6 +29,7 @@ const SideCard = () => {
     "GitHub",
     "Docker",
     "REST API",
+    "GraphQL",
   ];
 
   const handleShare = async () => {
