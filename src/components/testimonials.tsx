@@ -6,23 +6,27 @@ const Testimonials = () => {
   const testimonials = [
     {
       id: 1,
-      text: "Saransh showed remarkable proficiency in frontend development, quickly adapting to our workflow and technologies.",
-      author: "Vaibhav Agarwal, CEO at Falcon AI",
+      text: "Saransh's dedication to his work is commendable. He's always eager to learn and improve, and his passion for coding is truly inspiring.",
+      author: "Akansha Srivastava, Founder at Erino",
+      link: "",
     },
     {
       id: 2,
       text: "Working with Saransh was a pleasure. His technical skills are top-notch, and he always goes above and beyond to ensure project success.",
-      author: "Shreyans Bhargava, CEO at Fuelemy",
+      author: "Kuenzang, Co-founder at Erino",
+      link: "",
     },
     {
       id: 3,
-      text: "Saransh's ability to solve complex problems is truly remarkable. He's not just a developer, but a valuable asset to any team he's part of.",
-      author: "Likhit Ganni, COO at Fuelemy",
+      text: "Working with Saransh was a pleasure. His technical skills are top-notch, and he always goes above and beyond to ensure project success.",
+      author: "Shreyans Bhargava, CEO at Fuelemy",
+      link: "",
     },
     {
       id: 4,
-      text: "Saransh's dedication to his work is commendable. He's always eager to learn and improve, and his passion for coding is truly inspiring.",
-      author: "Akansha Srivastava, CEO at Erino",
+      text: "Saransh showed remarkable proficiency in frontend development, quickly adapting to our workflow and technologies.",
+      author: "Vaibhav Agarwal, CEO at Falcon AI",
+      link: "",
     },
   ];
 
@@ -43,7 +47,9 @@ const Testimonials = () => {
               <Card className="w-full">
                 <CardContent className="pt-6">
                   <blockquote className="text-lg italic mb-4">"{testimonial.text}"</blockquote>
-                  <p className="font-semibold text-right">{testimonial.author}</p>
+                  <a href={testimonial.link}>
+                    <p className="font-semibold text-right">{testimonial.author}</p>
+                  </a>
                 </CardContent>
               </Card>
             </motion.div>
