@@ -20,7 +20,7 @@ const Experience = () => {
     },
     {
       id: 3,
-      role: "Associate Technical Lead",
+      role: "Technical Lead",
       company: "Founders Club, SRMIST",
       period: "Oct 2023 - Present",
       description: "Worked along side a team of 3 to develop multiple projects for the college",
