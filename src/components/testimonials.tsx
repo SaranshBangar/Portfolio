@@ -18,12 +18,6 @@ const Testimonials = () => {
     },
     {
       id: 3,
-      text: "Working with Saransh was a pleasure. His technical skills are top-notch, and he always goes above and beyond to ensure project success.",
-      author: "Shreyans Bhargava, CEO at Fuelemy",
-      link: "",
-    },
-    {
-      id: 4,
       text: "Saransh showed remarkable proficiency in frontend development, quickly adapting to our workflow and technologies.",
       author: "Vaibhav Agarwal, CEO at Falcon AI",
       link: "",

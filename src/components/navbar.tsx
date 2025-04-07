@@ -4,6 +4,7 @@ import { Button } from "./ui/button";
 import { FileUser, Github, Linkedin, Mail, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SiLeetcode } from "react-icons/si";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
@@ -55,16 +56,25 @@ const NavBar = () => {
       </ConfettiButton>
       <div className="flex items-center space-x-4">
         {socialLinks.map((link, index) => (
-          <a
-            key={index}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground transition-colors"
-            aria-label={link.label}
-          >
-            {link.icon}
-          </a>
+          <TooltipProvider>
+            <Tooltip>
+              <TooltipTrigger>
+                <a
+                  key={index}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>{link.label}</p>
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         ))}
         <Button variant="ghost" size="icon" onClick={handleThemeChange} className="rounded-full relative">
           <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0" />
