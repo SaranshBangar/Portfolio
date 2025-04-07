@@ -56,11 +56,10 @@ const NavBar = () => {
       </ConfettiButton>
       <div className="flex items-center space-x-4">
         {socialLinks.map((link, index) => (
-          <TooltipProvider>
+          <TooltipProvider key={index}>
             <Tooltip>
               <TooltipTrigger>
                 <a
-                  key={index}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
