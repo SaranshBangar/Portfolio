@@ -86,7 +86,7 @@ If you'd like to use my portfolio as a template, you can customize it by:
 
 I've optimized this portfolio for deployment on Vercel:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/yourusername/portfolio)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/home)
 
 ## Contact
 
