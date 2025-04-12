@@ -1,8 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio Website
+
+Welcome to my portfolio website built with Next.js, React, TypeScript, and TailwindCSS!
+
+![Portfolio Preview](public/profilePicture.jpg)
+
+## Features
+
+- ✨ I've created a clean, minimal design with dark/light mode support
+- 🚀 Built with Next.js 14 and React 18
+- 🎨 Styled with TailwindCSS and shadcn/ui components
+- 💫 I've added animated UI elements with Framer Motion and tsParticles
+- 🤖 Integrated a custom AI chat bot to help visitors navigate
+- 📱 Fully responsive across all devices
+- 🔥 Optimized performance with Vercel Analytics
+- 💻 Showcases my work experience, projects, and skills
+
+## Tech Stack
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: TailwindCSS
+- **UI Components**: shadcn/ui
+- **Animations**: Framer Motion, tsParticles
+- **AI Integration**: Google Generative AI
+- **Deployment**: Vercel
+- **Analytics**: Vercel Analytics
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js (version 18 or later)
+- npm or yarn or pnpm or bun
+
+### Installation
+
+1. Clone my repository
+
+```bash
+git clone https://github.com/SaranshBangar/Portfolio.git ./
+```
+
+2. Install dependencies
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Run the development server
 
 ```bash
 npm run dev
@@ -14,23 +65,31 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `src/app/`: Main application pages
+- `src/components/`: React components
+  - `ui/`: UI components (shadcn/ui)
+- `src/lib/`: Utility functions and libraries
+- `public/`: Static assets
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+If you'd like to use my portfolio as a template, you can customize it by:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Updating the experience data in `experience.tsx`
+2. Adding new projects to `projects.tsx`
+3. Modifying the side card information in `side-card.tsx`
+4. Changing the theme colors in `tailwind.config.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+I've optimized this portfolio for deployment on Vercel:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/yourusername/portfolio)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+
+Feel free to reach out if you have any questions or would like to connect with me!

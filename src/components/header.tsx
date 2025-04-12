@@ -1,5 +1,5 @@
 import React from "react";
-import { Pointer } from "./magicui/pointer";
+import { Pointer } from "./ui/pointer";
 import { useTheme } from "next-themes";
 
 const Header = () => {
