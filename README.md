@@ -2,8 +2,6 @@
 
 Welcome to my portfolio website built with Next.js, React, TypeScript, and TailwindCSS!
 
-![Portfolio Preview](public/profilePicture.jpg)
-
 ## Features
 
 - ✨ I've created a clean, minimal design with dark/light mode support
