@@ -8,6 +8,7 @@
   --background-end-rgb: 255, 255, 255;
   --background-light: #ffffff;
   --background-dark: #000000;
+  --selection-color: #0000cc;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,6 +82,7 @@ body::-webkit-scrollbar {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --selection-color: #ffd700;
   }
 }
 
@@ -91,4 +93,14 @@ body::-webkit-scrollbar {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+::-moz-selection {
+  background: var(--selection-color);
+}
+::-webkit-selection {
+  background: var(--selection-color);
+}
+::selection {
+  background: var(--selection-color);
 }

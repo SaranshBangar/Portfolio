@@ -3,7 +3,6 @@ import { useEffect, useMemo, useState } from "react";
 import { loadSlim } from "@tsparticles/slim";
 import type { ISourceOptions } from "@tsparticles/engine";
 import { useTheme } from "next-themes";
-import { color, distance } from "framer-motion";
 
 interface ParticlesBackgroundProps {
   id: string;

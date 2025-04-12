@@ -5,6 +5,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Sparkles } from "lucide-react";
 import CustomBot from "@/components/custom-bot";
+import SelectionStyler from "@/components/selection-styler";
 import { useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.className}>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <SelectionStyler />
           {children}
           <CustomBot isOpen={isCustomBotOpen} onClose={() => setIsCustomBotOpen(false)} />
           <div
