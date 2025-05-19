@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ConfettiButton } from "./ui/confetti";
 import { Button } from "./ui/button";
-import { FileUser, Github, Linkedin, Mail, Moon, Sun, Bird } from "lucide-react";
+import { FileUser, Github, Linkedin, Mail, Moon, Sun, Bird, Codepen } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SiLeetcode } from "react-icons/si";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
@@ -24,6 +24,11 @@ const NavBar = () => {
       icon: <Linkedin className="size-5" />,
       href: "https://www.linkedin.com/in/saransh-bangar/",
       label: "LinkedIn",
+    },
+    {
+      icon: <Codepen className="size-5" />,
+      href: "https://peerlist.io/saransh_bangar",
+      label: "Peerlist",
     },
     {
       icon: <Bird className="size-5" />,
