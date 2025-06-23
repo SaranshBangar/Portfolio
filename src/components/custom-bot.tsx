@@ -108,7 +108,7 @@ const CustomBot: React.FC<{
     setIsLoading(true);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro-002" });
 
       const fullPrompt = `${PERSONAL_CONTEXT}\n\nUser Question: ${input}`;
 
