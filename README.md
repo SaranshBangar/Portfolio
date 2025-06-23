@@ -1,17 +1,15 @@
-# Portfolio Website
-
 Welcome to my portfolio website built with Next.js, React, TypeScript, and TailwindCSS!
 
 ## Features
 
-- ✨ I've created a clean, minimal design with dark/light mode support
-- 🚀 Built with Next.js 14 and React 18
-- 🎨 Styled with TailwindCSS and shadcn/ui components
-- 💫 I've added animated UI elements with Framer Motion and tsParticles
-- 🤖 Integrated a custom AI chat bot to help visitors navigate
-- 📱 Fully responsive across all devices
-- 🔥 Optimized performance with Vercel Analytics
-- 💻 Showcases my work experience, projects, and skills
+- I've created a clean, minimal design with dark/light mode support
+- Built with Next.js 14 and React 18
+- Styled with TailwindCSS and shadcn/ui components
+- I've added animated UI elements with Framer Motion and tsParticles
+- Integrated a custom AI chat bot to help visitors navigate
+- Fully responsive across all devices
+- Optimized performance with Vercel Analytics
+- Showcases my work experience, projects, and skills
 
 ## Tech Stack
 
@@ -19,7 +17,7 @@ Welcome to my portfolio website built with Next.js, React, TypeScript, and Tailw
 - **Language**: TypeScript
 - **Styling**: TailwindCSS
 - **UI Components**: shadcn/ui
-- **Animations**: Framer Motion, tsParticles
+- **Animations**: GSAP, Framer Motion, tsParticles
 - **AI Integration**: Google Generative AI
 - **Deployment**: Vercel
 - **Analytics**: Vercel Analytics
