@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+"use client";
+import React from "react";
 import { ConfettiButton } from "./ui/confetti";
 import { Button } from "./ui/button";
 import { FileUser, Github, Linkedin, Mail, Moon, Sun, Bird, Codepen } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SiLeetcode } from "react-icons/si";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
@@ -26,16 +29,6 @@ const NavBar = () => {
       label: "LinkedIn",
     },
     {
-      icon: <Codepen className="size-5" />,
-      href: "https://peerlist.io/saransh_bangar",
-      label: "Peerlist",
-    },
-    {
-      icon: <Bird className="size-5" />,
-      href: "https://codolio.com/profile/SaranshBangar/card",
-      label: "Codolio",
-    },
-    {
       icon: <SiLeetcode className="size-5" />,
       href: "https://leetcode.com/u/SaranshBangar/",
       label: "LeetCode",
@@ -52,6 +45,10 @@ const NavBar = () => {
       setTheme(theme === "light" ? "dark" : "light");
     }, 300);
   };
+
+  useGSAP(() => {
+    gsap.fromTo(".nav-link", { y: -10, opacity: 0, stagger: 0.1 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out", stagger: 0.1 });
+  }, []);
 
   return (
     <header className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -73,7 +70,7 @@ const NavBar = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  className="text-muted-foreground hover:text-foreground transition-colors nav-link"
                   aria-label={link.label}
                 >
                   {link.icon}
