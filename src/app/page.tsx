@@ -10,6 +10,7 @@ import SideCard from "@/components/side-card";
 import NavBar from "@/components/navbar";
 import Header from "@/components/header";
 import ParticlesBackground from "@/components/particles-background";
+import Connect from "@/components/connect";
 
 export default function Resume() {
   const [activeTab, setActiveTab] = useState("experience");
@@ -35,10 +36,11 @@ export default function Resume() {
 
           <section>
             <Tabs defaultValue="experience" className="w-full" onValueChange={setActiveTab}>
-              <TabsList className="grid w-full grid-cols-3">
+              <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="projects">Projects</TabsTrigger>
                 <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
+                <TabsTrigger value="connect">Connect</TabsTrigger>
               </TabsList>
               <AnimatePresence mode="wait">
                 {activeTab === "experience" && (
@@ -77,6 +79,19 @@ export default function Resume() {
                   >
                     <TabsContent value="testimonials" className="mt-4">
                       <Testimonials />
+                    </TabsContent>
+                  </motion.div>
+                )}
+                {activeTab === "connect" && (
+                  <motion.div
+                    key="connect"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <TabsContent value="connect" className="mt-4">
+                      <Connect />
                     </TabsContent>
                   </motion.div>
                 )}
