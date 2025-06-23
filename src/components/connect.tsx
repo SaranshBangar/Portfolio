@@ -199,7 +199,7 @@ const Connect = () => {
         >
           <p className="text-sm text-muted-foreground text-center">
             You can also reach me directly at{" "}
-            <a href="mailto:saranshbangad@gmail.com" className="font-medium text-primary hover:underline">
+            <a href="mailto:saranshbangad@gmail.com" className="font-medium text-primary underline underline-offset-2">
               saranshbangad@gmail.com
             </a>
           </p>
