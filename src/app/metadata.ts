@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saransh Bangar - SDE | Full Stack Developer",
+  title: "Saransh Bangar - SDE",
   description:
     "Software Development Engineer specializing in React, Next.js, TypeScript, and modern web technologies. Explore my portfolio showcasing innovative projects, technical skills, and professional experience.",
   generator: "Next.js",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Saransh Bangar - SDE | Full Stack Developer",
+    title: "Saransh Bangar - SDE",
     description:
       "Software Development Engineer specializing in React, Next.js, and modern web technologies. Explore my portfolio showcasing innovative projects, technical skills, and professional experience.",
     url: "https://www.saransh-bangar.xyz/",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saransh Bangar - SDE | Full Stack Developer",
+    title: "Saransh Bangar - SDE",
     description: "Software Development Engineer specializing in React, Next.js, and modern web technologies. View my projects and experience.",
     creator: "@SaranshBangar",
     images: ["/profilePicture.jpg"],
