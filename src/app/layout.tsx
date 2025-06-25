@@ -7,7 +7,7 @@ import { Sparkles } from "lucide-react";
 import CustomBot from "@/components/custom-bot";
 import SelectionStyler from "@/components/selection-styler";
 import { Toaster } from "sonner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,6 +17,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const toggleCustomBot = () => {
     setIsCustomBotOpen(!isCustomBotOpen);
   };
+
+  useEffect(() => {
+    document.title = "Saransh Bangar - SDE";
+  }, []);
 
   return (
     <html lang="en" className={inter.className}>
