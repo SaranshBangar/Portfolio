@@ -11,9 +11,9 @@ const Header = () => {
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
         <h1 className="text-4xl md:text-6xl font-bold text-black mb-4 dark:text-white">Saransh Bangar</h1>
         <RotatingText
-          texts={["Full Stack Developer", "Frontend Developer", "UX Designer"]}
+          texts={["Full Stack Developer", "Frontend Developer", "UX Designer", "Backend Developer"]}
           mainClassName={`px-2 sm:px-2 md:px-3 ${
-            theme === "dark" ? "bg-[#FFD700]/80" : "bg-[#0000CC]/80"
+            theme === "dark" ? "bg-[#FFD700]/80" : "bg-[#0000CC]/40"
           } text-primary overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg text-xl md:text-2xl`}
           staggerFrom={"last"}
           initial={{ y: "100%" }}

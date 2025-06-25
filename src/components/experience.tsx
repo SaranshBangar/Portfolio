@@ -1,7 +1,11 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { useTheme } from "next-themes";
+import { Pointer } from "./ui/pointer";
 
 const Experience = () => {
+  const { theme } = useTheme();
+
   const experiences = [
     {
       id: 1,
@@ -14,21 +18,10 @@ const Experience = () => {
         "Implemented performance optimization techniques, reducing component render times by 20%.",
       ],
       link: "https://erino.io/",
+      companyLogo: "/erino_logo.png",
     },
     {
       id: 2,
-      role: "Fullstack Developer Intern",
-      company: "Fuelemy",
-      period: "Jul 2024 - Jan 2025",
-      bulletPoints: [
-        "Engineered dynamic landing pages and dashboards using ReactJS, Express.js, and Tailwind CSS to enhance client interaction.",
-        "Diagnosed and resolved frontend bugs, reducing reported issues by 35% and improving application stability.",
-        "Developed responsive web applications with cross-browser compatibility, ensuring consistent user experience across devices.",
-      ],
-      link: "/",
-    },
-    {
-      id: 3,
       role: "Technical Lead",
       company: "Founders Club, SRMIST",
       period: "Oct 2023 - Present",
@@ -38,6 +31,20 @@ const Experience = () => {
         "Mentored junior developers and conducted code reviews to ensure high code quality standards.",
       ],
       link: "https://www.thefoundersclub.in/",
+      companyLogo: "/founders_club_logo.jpg",
+    },
+    {
+      id: 3,
+      role: "Fullstack Developer Intern",
+      company: "Fuelemy",
+      period: "Jul 2024 - Jan 2025",
+      bulletPoints: [
+        "Engineered dynamic landing pages and dashboards using ReactJS, Express.js, and Tailwind CSS to enhance client interaction.",
+        "Diagnosed and resolved frontend bugs, reducing reported issues by 35% and improving application stability.",
+        "Developed responsive web applications with cross-browser compatibility, ensuring consistent user experience across devices.",
+      ],
+      link: "/",
+      companyLogo: "/fuelemy_logo.png",
     },
     {
       id: 4,
@@ -50,6 +57,7 @@ const Experience = () => {
         "Enhanced user experience by optimizing frontend rendering and improving UI consistency across devices.",
       ],
       link: "https://www.linkedin.com/company/getfalcon/",
+      companyLogo: "/falcon_ai_logo.png",
     },
   ];
 
@@ -65,7 +73,7 @@ const Experience = () => {
               <span className="absolute size-4 bg-primary/80 rounded-full -left-2"></span>
               <time className="mb-1 text-sm font-normal leading-none text-muted-foreground">{exp.period}</time>
               <h3 className="text-lg font-semibold">{exp.role}</h3>
-              <p className="mb-4 text-base font-normal text-muted-foreground hover:underline">
+              <p className="mb-4 text-base font-normal text-muted-foreground underline underline-offset-2">
                 <a href={exp.link} target="_blank">
                   {exp.company}
                 </a>
@@ -77,6 +85,9 @@ const Experience = () => {
                   </li>
                 ))}
               </ul>
+              <Pointer>
+                <img src={exp.companyLogo} alt={exp.company} className="size-8" />
+              </Pointer>
             </li>
           ))}
         </ol>
