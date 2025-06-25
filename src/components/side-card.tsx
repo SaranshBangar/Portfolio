@@ -33,6 +33,8 @@ const SideCard = () => {
     "GitHub",
     "Docker",
     "REST API",
+    "Vercel",
+    "Netlify",
   ];
 
   const handleShare = async () => {
