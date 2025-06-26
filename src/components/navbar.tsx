@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { FileUser, Github, Linkedin, Mail, Moon, Sun, Bird, Codepen } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SiLeetcode } from "react-icons/si";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/animate-ui/components/tooltip";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -62,31 +62,45 @@ const NavBar = () => {
         <h1 className="text-2xl font-bold">{`</>`}</h1>
       </ConfettiButton>
       <div className="flex items-center space-x-4">
-        {socialLinks.map((link, index) => (
-          <TooltipProvider key={index} delayDuration={500}>
-            <Tooltip>
+        <TooltipProvider openDelay={300} closeDelay={150} transition={{ type: "spring", stiffness: 300, damping: 25 }}>
+          {socialLinks.map((link, index) => (
+            <Tooltip key={index} side="bottom" sideOffset={8} align="center">
               <TooltipTrigger>
                 <a
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-foreground transition-colors nav-link"
+                  className="text-muted-foreground hover:text-foreground transition-all duration-300 nav-link hover:scale-110 active:scale-95"
                   aria-label={link.label}
                 >
                   {link.icon}
                 </a>
               </TooltipTrigger>
-              <TooltipContent>
-                <p>{link.label}</p>
+              <TooltipContent arrow>
+                <p className="text-sm font-medium">{link.label}</p>
               </TooltipContent>
             </Tooltip>
-          </TooltipProvider>
-        ))}
-        <Button variant="ghost" size="icon" onClick={handleThemeChange} className="rounded-full relative">
-          <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100" />
-          <span className="sr-only">Toggle theme</span>
-        </Button>
+          ))}
+        </TooltipProvider>
+        <TooltipProvider openDelay={300} closeDelay={150} transition={{ type: "spring", stiffness: 300, damping: 25 }}>
+          <Tooltip side="bottom" sideOffset={8} align="center">
+            <TooltipTrigger>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleThemeChange}
+                className="rounded-full relative hover:scale-110 active:scale-95 transition-all duration-300"
+              >
+                <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all duration-500 dark:-rotate-90 dark:scale-0" />
+                <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all duration-500 dark:rotate-0 dark:scale-100" />
+                <span className="sr-only">Toggle theme</span>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent arrow>
+              <p className="text-sm font-medium">{theme === "light" ? "Switch to dark mode" : "Switch to light mode"}</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
     </header>
   );

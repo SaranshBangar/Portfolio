@@ -40,6 +40,7 @@
     "next": "14.1.4",
     "next-themes": "^0.3.0",
     "nodemailer": "^6.9.16",
+    "radix-ui": "^1.4.2",
     "react": "^18",
     "react-dom": "^18",
     "react-element-to-jsx-string": "^15.0.0",

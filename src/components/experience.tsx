@@ -1,11 +1,9 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { useTheme } from "next-themes";
 import { Pointer } from "./ui/pointer";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 
 const Experience = () => {
-  const { theme } = useTheme();
-
   const experiences = [
     {
       id: 1,
@@ -73,11 +71,20 @@ const Experience = () => {
               <span className="absolute size-4 bg-primary/80 rounded-full -left-2"></span>
               <time className="mb-1 text-sm font-normal leading-none text-muted-foreground">{exp.period}</time>
               <h3 className="text-lg font-semibold">{exp.role}</h3>
-              <p className="mb-4 text-base font-normal text-muted-foreground underline underline-offset-2">
-                <a href={exp.link} target="_blank">
-                  {exp.company}
-                </a>
-              </p>
+              <TooltipProvider key={index} delayDuration={500}>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <p className="mb-4 text-base font-normal text-muted-foreground underline underline-offset-2">
+                      <a href={exp.link} target="_blank">
+                        {exp.company}
+                      </a>
+                    </p>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <img src={exp.companyLogo} alt={`${exp.company} logo`} className="size-16 object-contain" />
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
               <ul className="list-disc pl-5 space-y-1">
                 {exp.bulletPoints.map((point, i) => (
                   <li key={i} className="text-sm text-muted-foreground">
@@ -85,9 +92,6 @@ const Experience = () => {
                   </li>
                 ))}
               </ul>
-              <Pointer>
-                <img src={exp.companyLogo} alt={exp.company} className="size-8" />
-              </Pointer>
             </li>
           ))}
         </ol>
