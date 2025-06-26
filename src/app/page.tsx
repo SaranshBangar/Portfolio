@@ -1,7 +1,5 @@
 "use client";
 
-import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/animate-ui/radix/tabs";
 import Testimonials from "@/components/testimonials";
 import Projects from "@/components/projects";
@@ -13,8 +11,6 @@ import ParticlesBackground from "@/components/particles-background";
 import Connect from "@/components/connect";
 
 export default function Resume() {
-  const [activeTab, setActiveTab] = useState("experience");
-
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <div className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b">
@@ -35,67 +31,29 @@ export default function Resume() {
           </aside>
 
           <section>
-            <Tabs defaultValue="experience" className="w-full" onValueChange={setActiveTab}>
+            <Tabs defaultValue="experience" className="w-full">
               <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="experience">Experience</TabsTrigger>
                 <TabsTrigger value="projects">Projects</TabsTrigger>
                 <TabsTrigger value="testimonials">Testimonials</TabsTrigger>
                 <TabsTrigger value="connect">Connect</TabsTrigger>
               </TabsList>
-              <AnimatePresence mode="wait">
-                {activeTab === "experience" && (
-                  <motion.div
-                    key="experience"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <TabsContent value="experience" className="mt-4">
-                      <Experience />
-                    </TabsContent>
-                  </motion.div>
-                )}
-                {activeTab === "projects" && (
-                  <motion.div
-                    key="projects"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <TabsContent value="projects" className="mt-4">
-                      <Projects />
-                    </TabsContent>
-                  </motion.div>
-                )}
-                {activeTab === "testimonials" && (
-                  <motion.div
-                    key="testimonials"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <TabsContent value="testimonials" className="mt-4">
-                      <Testimonials />
-                    </TabsContent>
-                  </motion.div>
-                )}
-                {activeTab === "connect" && (
-                  <motion.div
-                    key="connect"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <TabsContent value="connect" className="mt-4">
-                      <Connect />
-                    </TabsContent>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+
+              <TabsContent value="experience" className="mt-4">
+                <Experience />
+              </TabsContent>
+
+              <TabsContent value="projects" className="mt-4">
+                <Projects />
+              </TabsContent>
+
+              <TabsContent value="testimonials" className="mt-4">
+                <Testimonials />
+              </TabsContent>
+
+              <TabsContent value="connect" className="mt-4">
+                <Connect />
+              </TabsContent>
             </Tabs>
           </section>
         </div>
