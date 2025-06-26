@@ -13,7 +13,7 @@ const Header = () => {
         <RotatingText
           texts={["Full Stack Developer", "Frontend Developer", "UX Designer", "Backend Developer"]}
           mainClassName={`px-2 sm:px-2 md:px-3 ${
-            theme === "dark" ? "bg-[#FFD700]/80" : "bg-[#0000CC]/40"
+            theme === "dark" ? "border-[1px] border-[#FFD700]/80 bg-black" : "bg-[#8888CC]"
           } text-primary overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg text-xl md:text-2xl`}
           staggerFrom={"last"}
           initial={{ y: "100%" }}
