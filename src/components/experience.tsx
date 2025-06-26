@@ -2,6 +2,7 @@ import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Pointer } from "./ui/pointer";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import Image from "next/image";
 
 const Experience = () => {
   const experiences = [
@@ -81,7 +82,7 @@ const Experience = () => {
                     </p>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <img src={exp.companyLogo} alt={`${exp.company} logo`} className="size-16 object-contain" />
+                    <Image src={exp.companyLogo} alt={`${exp.company} logo`} width={64} height={64} className="size-16 object-contain" />
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
