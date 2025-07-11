@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <div className="relative w-full h-full">
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-[5]">
         <h1 className="text-4xl md:text-6xl font-bold text-black mb-4 dark:text-white">Saransh Bangar</h1>
         <RotatingText
           texts={["Full Stack Developer", "Frontend Developer", "UX Designer", "Backend Developer"]}

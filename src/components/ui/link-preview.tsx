@@ -5,7 +5,7 @@ import { encode } from "qss";
 import React from "react";
 import { AnimatePresence, motion, useMotionValue, useSpring } from "motion/react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 
 type LinkPreviewProps = {
   children: React.ReactNode;
@@ -52,14 +52,14 @@ export const LinkPreview = ({ children, url, className, width = 200, height = 12
   const handleMouseMove = (event: any) => {
     const targetRect = event.target.getBoundingClientRect();
     const eventOffsetX = event.clientX - targetRect.left;
-    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2; // Reduce the effect to make it subtle
+    const offsetFromCenter = (eventOffsetX - targetRect.width / 2) / 2;
     x.set(offsetFromCenter);
   };
 
   return (
     <>
       {isMounted ? (
-        <div className="hidden">
+        <div className="hidden text-black dark:text-white">
           <img src={src} width={width} height={height} alt="hidden image" />
         </div>
       ) : null}
@@ -71,7 +71,7 @@ export const LinkPreview = ({ children, url, className, width = 200, height = 12
           setOpen(open);
         }}
       >
-        <HoverCardPrimitive.Trigger onMouseMove={handleMouseMove} className={cn("text-black dark:text-white", className)} href={url}>
+        <HoverCardPrimitive.Trigger onMouseMove={handleMouseMove} className={cn("text-white dark:text-black", className)} href={url}>
           {children}
         </HoverCardPrimitive.Trigger>
 
@@ -96,7 +96,7 @@ export const LinkPreview = ({ children, url, className, width = 200, height = 12
                   },
                 }}
                 exit={{ opacity: 0, y: 20, scale: 0.6 }}
-                className="shadow-xl rounded-xl"
+                className="shadow-xl rounded-xl z-[1000]"
                 style={{
                   x: translateX,
                 }}
@@ -106,7 +106,7 @@ export const LinkPreview = ({ children, url, className, width = 200, height = 12
                   className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
                   style={{ fontSize: 0 }}
                 >
-                  <img src={isStatic ? imageSrc : src} width={width} height={height} className="rounded-lg" alt="preview image" />
+                  <img src={isStatic ? imageSrc : src} width={width} height={height} className="rounded-lg z-[1000]" alt="preview image" />
                 </a>
               </motion.div>
             )}

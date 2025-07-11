@@ -8,6 +8,7 @@ import CustomBot from "@/components/custom-bot";
 import SelectionStyler from "@/components/selection-styler";
 import { Toaster } from "sonner";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     document.title = "Saransh Bangar - SDE";
   }, []);
 
+  const pathname = usePathname();
+
   return (
     <html lang="en" className={inter.className}>
       <body>
@@ -29,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <SelectionStyler />
           {children}
-          <CustomBot isOpen={isCustomBotOpen} onClose={() => setIsCustomBotOpen(false)} />
+          {!pathname.includes("/dev") && <CustomBot isOpen={isCustomBotOpen} onClose={() => setIsCustomBotOpen(false)} />}
           <Toaster richColors position="top-right" />
           <div
             className="fixed right-4 bottom-4 border-2 bg-white dark:bg-black dark:border-white/50 border-black/50 p-2 rounded-lg cursor-pointer hover:bg-accent transition-colors animate-pulse"

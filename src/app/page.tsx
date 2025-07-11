@@ -1,6 +1,6 @@
 "use client";
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/animate-ui/radix/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/animated-tabs";
 import Testimonials from "@/components/testimonials";
 import Projects from "@/components/projects";
 import Experience from "@/components/experience";
@@ -9,11 +9,25 @@ import NavBar from "@/components/navbar";
 import Header from "@/components/header";
 import ParticlesBackground from "@/components/particles-background";
 import Connect from "@/components/connect";
+import { StickyBanner } from "@/components/ui/sticky-banner";
+import { useTheme } from "next-themes";
+import { LinkPreview } from "@/components/ui/link-preview";
 
 export default function Resume() {
+  const { theme } = useTheme();
+
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-      <div className="sticky top-0 z-50 backdrop-blur-md bg-background/80 border-b">
+      <StickyBanner className="text-white dark:text-black dark:bg-[#FFD700] bg-[#0000CC]" hideOnScroll>
+        <p className="mx-0 max-w-[90%] drop-shadow-md">
+          Check out the latest updates on my portfolio specially developed for developers!{" "}
+          <LinkPreview url="https://www.saransh-bangar.xyz/dev" className="underline text-white dark:text-black">
+            Click here to explore
+          </LinkPreview>
+        </p>
+      </StickyBanner>
+
+      <div className="sticky z-10 top-0 backdrop-blur-md bg-background/80 border-b">
         <NavBar />
       </div>
 

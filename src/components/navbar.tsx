@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { FileUser, Github, Linkedin, Mail, Moon, Sun, Bird, Codepen } from "lucide-react";
 import { useTheme } from "next-themes";
 import { SiLeetcode } from "react-icons/si";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/animate-ui/components/tooltip";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/animated-tooltip";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -51,7 +51,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <header className="container mx-auto px-4 py-4 flex justify-between items-center">
+    <header className="container mx-auto z-[60] px-4 py-4 flex justify-between items-center bg-white dark:bg-black">
       <ConfettiButton
         options={{
           get angle() {

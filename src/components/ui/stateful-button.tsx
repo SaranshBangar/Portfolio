@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/cn";
 import React, { useState, useImperativeHandle, forwardRef } from "react";
 import { motion, useAnimate } from "motion/react";
 
