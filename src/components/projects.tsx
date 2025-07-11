@@ -4,6 +4,7 @@ import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
 import { Github, Globe } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { LinkPreview } from "./ui/link-preview";
 
 const Projects = () => {
   const projects = [
@@ -42,11 +43,8 @@ const Projects = () => {
 
   return (
     <Card>
-      <CardHeader>
-        <CardTitle>Projects</CardTitle>
-      </CardHeader>
       <CardContent>
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid gap-4 sm:grid-cols-2 mt-6">
           {projects.map((project, index) => (
             <div key={project.id}>
               <Card className="h-full flex flex-col">
@@ -66,10 +64,10 @@ const Projects = () => {
                 <CardContent className="pt-0 flex justify-between">
                   {project.liveLink && (
                     <Button variant="outline" size="sm" asChild>
-                      <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                      <LinkPreview url={project.liveLink!}>
                         <Globe className="mr-2 h-4 w-4" />
                         Live Demo
-                      </a>
+                      </LinkPreview>
                     </Button>
                   )}
                   {!project.liveLink && (

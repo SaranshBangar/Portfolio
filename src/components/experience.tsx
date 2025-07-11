@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Pointer } from "./ui/pointer";
+import { Card, CardContent } from "./ui/card";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
 import Image from "next/image";
 
@@ -62,10 +61,7 @@ const Experience = () => {
 
   return (
     <Card className="h-fit">
-      <CardHeader>
-        <CardTitle>Work Experience</CardTitle>
-      </CardHeader>
-      <CardContent>
+      <CardContent className="mt-6">
         <ol className="relative border-l border-gray-200 dark:border-gray-700">
           {experiences.map((exp, index) => (
             <li key={exp.id} className="mb-10 ml-6">
