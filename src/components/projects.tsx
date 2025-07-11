@@ -10,19 +10,19 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      name: "ZipIt",
-      description: "A fullstack application built with Next.js to make the PMSSS application process entirely online.",
-      tags: ["Next.js", "Node.js", "Supabase", "Tailwind"],
-      githubRepo: "https://github.com/SaranshBangar/PMSSS-Student-Website",
-    },
-    {
-      id: 2,
       name: "CloudSRM",
       description:
         "Created a Google Drive clone with comprehensive file management and storage capabilities for SRM Institute of Science and Technology.",
       tags: ["Next.js", "TypeScript", "Tailwind CSS", "Appwrite"],
       liveLink: "https://www.cloudsrm.xyz",
       githubRepo: "https://github.com/SaranshBangar/CloudSRM",
+    },
+    {
+      id: 2,
+      name: "ZipIt",
+      description: "A fullstack application built with Next.js to make the PMSSS application process entirely online.",
+      tags: ["Next.js", "Node.js", "Supabase", "Tailwind"],
+      githubRepo: "https://github.com/SaranshBangar/PMSSS-Student-Website",
     },
     {
       id: 3,
@@ -34,10 +34,28 @@ const Projects = () => {
     },
     {
       id: 4,
+      name: "Course-GPT",
+      description:
+        "An AI-powered platform that streamlines the course creation process for educators. It leverages advanced language models to generate curriculum content",
+      tags: ["React.js", "Node.js", "Express", "TypeScript", "MongoDB", "Hugging Face", "Flan-T5-XXL"],
+      liveLink: "https://kalvium-course-gpt.vercel.app/",
+      githubRepo: "https://github.com/SaranshBangar/course-gpt",
+    },
+    {
+      id: 5,
       name: "GPU Dash",
       description: "A real-time web portal application for displaying GPU and CPU data, utilizing Rust backend.",
       tags: ["Rust", "TypeScript", "React", "Tailwind"],
       githubRepo: "https://github.com/Tom-Dick-Harry/gpu-dash-tdh",
+    },
+    {
+      id: 6,
+      name: "CarHub",
+      description:
+        "A modern, responsive car rental and showcase application built for users to browse, search, and explore detailed information about various car models.",
+      tags: ["Next.js", "TypeScript", "Tailwind"],
+      liveLink: "https://car-rental-saransh-bangar.vercel.app/",
+      githubRepo: "https://github.com/SaranshBangar/Car_Rental_NextJS",
     },
   ];
 
