@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
-import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { motion } from "motion/react";
-import { Send, Mail, User, MessageSquare } from "lucide-react";
+import { Mail, User, MessageSquare } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { toast } from "sonner";
+import { StatefulButton, StatefulButtonRef } from "./ui/stateful-button";
 
 const Connect = () => {
   const [formData, setFormData] = useState({
@@ -18,8 +18,9 @@ const Connect = () => {
     message: "",
   });
   const [isLoading, setIsLoading] = useState(false);
+  const buttonRef = useRef<StatefulButtonRef>(null);
 
-  const subjectOptions = ["General Inquiry", "Project Collaboration", "Job Opportunity", "Freelance Work", "Technical Discussion", "Other"];
+  const subjectOptions = ["General Inquiry", "Project Collaboration", "Job Opportunity", "Freelance Work", "Other"];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -33,17 +34,18 @@ const Connect = () => {
 
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
       toast.error("Please fill in all fields");
+      buttonRef.current?.setError();
       return;
     }
-
-    // Email validation
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(formData.email)) {
       toast.error("Please enter a valid email address");
+      buttonRef.current?.setError();
       return;
     }
 
     setIsLoading(true);
+    buttonRef.current?.setLoading();
 
     try {
       const templateParams = {
@@ -60,11 +62,14 @@ const Connect = () => {
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
       );
+
       toast.success("Message sent successfully!");
+      buttonRef.current?.setSuccess();
       setFormData({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("Email send error:", error);
       toast.error("Failed to send message. Please try again later.");
+      buttonRef.current?.setError();
     } finally {
       setIsLoading(false);
     }
@@ -75,7 +80,7 @@ const Connect = () => {
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Mail className="h-5 w-5" />
-          Let's Connect
+          Let's Chat
         </CardTitle>
         <p className="text-sm text-muted-foreground">Have a project in mind or just want to chat? I'd love to hear from you!</p>
       </CardHeader>
@@ -175,19 +180,9 @@ const Connect = () => {
             />
           </motion.div>{" "}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}>
-            <Button type="submit" className="w-full sm:w-auto" disabled={isLoading}>
-              {isLoading ? (
-                <>
-                  <div className="mr-2 h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
-                  Sending...
-                </>
-              ) : (
-                <>
-                  <Send className="mr-2 h-4 w-4" />
-                  Send Message
-                </>
-              )}
-            </Button>
+            <StatefulButton ref={buttonRef} type="submit" disabled={isLoading}>
+              Send Message
+            </StatefulButton>
           </motion.div>
         </motion.form>
 

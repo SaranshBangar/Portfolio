@@ -22,6 +22,12 @@ const Testimonials = () => {
       author: "Vaibhav Agarwal, CEO at Falcon AI",
       authorLinkedin: "https://www.linkedin.com/in/mrvaibhav98/",
     },
+    {
+      id: 4,
+      text: "Saransh is a great coder with the right mindset. He took initiative and always had a great attitude. His technical skills and approach to problem-solving are impressive.",
+      author: "Rishab Raj, Founder at STRMLY",
+      authorLinkedin: "https://www.linkedin.com/in/rishab-raj-34281122a",
+    },
   ];
 
   return (

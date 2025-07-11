@@ -7,6 +7,7 @@ import { Badge } from "./ui/badge";
 import { Mail, Phone, Share2, Github } from "lucide-react";
 import { Button } from "./ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+import { PointerHighlight } from "./ui/pointer-highlight";
 
 const SideCard = () => {
   const skills = [
@@ -102,7 +103,11 @@ Skills => ${skills.join(", ")}
             <AvatarFallback>SB</AvatarFallback>
           </Avatar>
           <CardTitle className="text-2xl font-bold text-center">Saransh Bangar</CardTitle>
-          <CardDescription className="text-center text-primary/80">Full Stack Developer</CardDescription>
+          <CardDescription className="flex justify-center text-primary/80">
+            <PointerHighlight>
+              <span className="p-2"> Full Stack Developer </span>
+            </PointerHighlight>
+          </CardDescription>
         </div>
       </CardHeader>
       <CardContent className="pt-6 space-y-6">
