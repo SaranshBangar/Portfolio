@@ -81,7 +81,7 @@ const Projects = () => {
                 </CardContent>
                 <CardContent className="pt-0 flex justify-between">
                   {project.liveLink && (
-                    <Button variant="outline" size="sm" asChild>
+                    <Button size="sm" asChild className="text-white">
                       <LinkPreview url={project.liveLink!}>
                         <Globe className="mr-2 h-4 w-4" />
                         Live Demo
@@ -93,10 +93,10 @@ const Projects = () => {
                       <Tooltip>
                         <TooltipTrigger>
                           <Button variant="ghost" size="sm" asChild disabled className="cursor-not-allowed">
-                            <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                            <div>
                               <Globe className="mr-2 h-4 w-4" />
                               Live Demo
-                            </a>
+                            </div>
                           </Button>
                         </TooltipTrigger>
                         <TooltipContent>
