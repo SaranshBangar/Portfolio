@@ -88,7 +88,7 @@ const Terminal = () => {
 
   return (
     <section className="relative">
-      <section className="sticky top-0 z-20 border-b-[1px] border-[#4AF626] bg-background pb-2 max-lg:-m-2">
+      <section className="border-b-[1px] border-[#4AF626] bg-background pb-2 max-lg:-m-2">
         {TerminalCommands.map((command, index) => (
           <span key={index} className="text-[#4AF626]">
             {command}
