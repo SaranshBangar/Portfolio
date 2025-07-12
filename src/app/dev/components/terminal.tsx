@@ -42,7 +42,7 @@ const Terminal = () => {
 
       if (command === "") return;
 
-      if (command === "clear") {
+      if (command === "cls") {
         setHistory([]);
         setCurrentInput("");
         return;
@@ -64,6 +64,9 @@ const Terminal = () => {
 
       setHistory((prev) => prev.map((entry, index) => (index === prev.length - 1 ? { ...entry, output, isLoading: false } : entry)));
       setIsProcessing(false);
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 0);
     } else if (e.key === "ArrowUp" && showSuggestions) {
       e.preventDefault();
       setSelectedSuggestion((prev) => (prev <= 0 ? filteredCommands.length - 1 : prev - 1));
@@ -118,6 +121,7 @@ const Terminal = () => {
               onKeyDown={handleKeyDown}
               className="bg-transparent outline-none caret-[#4AF626] text-white w-full"
               autoFocus
+              disabled={isProcessing}
             />
 
             {showSuggestions && (

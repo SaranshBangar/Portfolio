@@ -1,4 +1,4 @@
-export const TerminalCommands = ["help", "about", "projects", "skills", "experience", "contact", "education", "certifications", "clear"];
+export const TerminalCommands = ["help", "about", "projects", "skills", "experience", "contact", "education", "certifications", "cls"];
 
 export const TerminalCommandOutput = {
   help: "List of available commands: help, about, projects, skills, experience, contact, education, certifications, clear",
@@ -9,5 +9,5 @@ export const TerminalCommandOutput = {
   contact: "Email: saransh.bangar@example.com",
   education: "Bachelor's degree in Computer Science from XYZ University.",
   certifications: "Certified JavaScript Developer, AWS Certified Solutions Architect.",
-  clear: "Clears the terminal output.",
+  cls: "Clears the terminal output.",
 };
