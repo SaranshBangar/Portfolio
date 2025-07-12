@@ -151,13 +151,8 @@ const CustomBot: React.FC<{
 
   if (!isOpen) return null;
 
-  const pathname = usePathname();
-
   return (
-    <div
-      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm mx-2 ${pathname === "/dev" ? "hidden" : "block"}`}
-      onClick={onClose}
-    >
+    <div className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm mx-2`} onClick={onClose}>
       <Card className="w-full max-w-md h-[600px] flex flex-col" onClick={(e) => e.stopPropagation()}>
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <h2 className="text-lg font-semibold">BangerBot</h2>
