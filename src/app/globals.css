@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@0,200..700;1,200..700&family=Concert+One&family=League+Spartan:wght@100..900&family=Lexend:wght@100..900&display=swap");
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -103,4 +104,8 @@ body::-webkit-scrollbar {
 }
 ::selection {
   background: var(--selection-color);
+}
+
+.cascadia-mono {
+  font-family: "Cascadia Mono", monospace;
 }

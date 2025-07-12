@@ -8,6 +8,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X, Send, Loader2, Bot, User } from "lucide-react";
+import { usePathname } from "next/navigation";
 
 const PERSONAL_CONTEXT = `
 You are BangerBot, a smart and personable AI assistant representing Saransh Bangar. Your job is to help visitors quickly understand his technical strengths, experience, and achievements.
@@ -150,8 +151,13 @@ const CustomBot: React.FC<{
 
   if (!isOpen) return null;
 
+  const pathname = usePathname();
+
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm mx-2" onClick={onClose}>
+    <div
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm mx-2 ${pathname === "/dev" ? "hidden" : "block"}`}
+      onClick={onClose}
+    >
       <Card className="w-full max-w-md h-[600px] flex flex-col" onClick={(e) => e.stopPropagation()}>
         <CardHeader className="flex flex-row items-center justify-between border-b p-4">
           <h2 className="text-lg font-semibold">BangerBot</h2>

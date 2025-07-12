@@ -1,15 +1,27 @@
-import Terminal from "@/components/dev/terminal";
-import ICard from "@/components/dev/i-card";
+"use client";
+
+import Terminal from "@/app/dev/components/terminal";
 import React from "react";
+import CurrentTime from "./components/current-time";
+import Spline from "@splinetool/react-spline";
 
 const page = () => {
   return (
-    <main className="flex justify-center items-start h-[calc(100vh-3.5rem)] p-2">
-      <section className="w-1/3 m-2 p-4 border rounded-xl h-[calc(100%-16px)] overflow-hidden">
-        <ICard />
+    <main className="flex flex-col justify-center items-center h-[100vh]">
+      <section className="w-full h-[10vh] flex flex-col justify-center items-start p-4">
+        <h1 className="text-2xl">Saransh Bangar</h1>
+        <h2 className="text-white/80 font-thin">Software Developer</h2>
       </section>
-      <section className="w-2/3 m-2 p-4 border rounded-xl h-[calc(100%-16px)] overflow-x-hidden overflow-y-scroll">
-        <Terminal />
+      <section className="flex w-full h-full">
+        <div className="w-2/5 p-4 border-[#4AF626] border-t-[1px] border-b-[1px] border-r-[1px] h-[86vh] overflow-hidden hidden lg:block">
+          <Spline scene={process.env.NEXT_PUBLIC_SPLINE_URL!} />
+        </div>
+        <div className="w-full max-lg:mx-4 lg:w-3/5 p-4 z-10 border-[#4AF626] border-t-[1px] border-b-[1px] h-[86vh] overflow-x-hidden overflow-y-scroll">
+          <Terminal />
+        </div>
+      </section>
+      <section className="w-full h-[4vh]">
+        <CurrentTime />
       </section>
     </main>
   );
