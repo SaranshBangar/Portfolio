@@ -109,3 +109,15 @@ body::-webkit-scrollbar {
 .cascadia-mono {
   font-family: "Cascadia Mono", monospace;
 }
+
+.terminal-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal-scrollbar::-webkit-scrollbar-thumb {
+  background: #4af626;
+}

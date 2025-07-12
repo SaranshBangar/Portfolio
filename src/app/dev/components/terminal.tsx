@@ -125,7 +125,7 @@ const Terminal = () => {
             />
 
             {showSuggestions && (
-              <div className="absolute top-full left-0 mt-1 bg-black/90 border border-[#4AF626] rounded-md z-30 min-w-[200px] max-h-[150px] overflow-y-auto">
+              <div className="absolute top-full left-0 mt-1 bg-black/90 border border-[#4AF626] z-30 min-w-[200px] max-h-[150px] overflow-y-auto">
                 {filteredCommands.map((command, index) => (
                   <div
                     key={command}

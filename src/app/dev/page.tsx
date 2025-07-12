@@ -21,7 +21,7 @@ const page = () => {
         <div className="w-2/5 p-4 border-[#4AF626] border-t-[1px] border-b-[1px] border-r-[1px] h-[86vh] overflow-hidden hidden lg:block">
           {process.env.NEXT_PUBLIC_SPLINE_URL && <Spline scene={process.env.NEXT_PUBLIC_SPLINE_URL} />}
         </div>
-        <div className="w-full max-lg:mx-4 lg:w-3/5 p-4 z-10 border-[#4AF626] border-t-[1px] border-b-[1px] h-[86vh] overflow-x-hidden overflow-y-scroll">
+        <div className="w-full max-lg:mx-4 lg:w-3/5 p-4 z-10 border-[#4AF626] border-t-[1px] border-b-[1px] h-[86vh] overflow-x-hidden overflow-y-scroll terminal-scrollbar">
           <Terminal />
         </div>
       </section>
