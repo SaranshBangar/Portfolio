@@ -18,8 +18,8 @@ export default function Resume() {
 
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
-      <StickyBanner className="text-white dark:text-black dark:bg-[#FFD700] bg-[#0000CC]" hideOnScroll>
-        <p className="mx-0 max-w-[90%] drop-shadow-md">
+      <StickyBanner className="text-white dark:text-black dark:bg-[#FFD700] bg-[#8888CC]" hideOnScroll>
+        <p className="mx-0 max-w-[90%] drop-shadow-md text-center">
           Check out the latest updates on my portfolio specially developed for developers!{" "}
           <LinkPreview url="https://www.saransh-bangar.xyz/dev" className="underline text-white dark:text-black">
             Click here to explore

@@ -8,6 +8,7 @@ import { SiLeetcode } from "react-icons/si";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/animated-tooltip";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import Image from "next/image";
 
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
@@ -59,7 +60,29 @@ const NavBar = () => {
           },
         }}
       >
-        <h1 className="text-2xl font-bold">{`</>`}</h1>
+        <TooltipProvider openDelay={100}>
+          <Tooltip side="bottom" sideOffset={8} align="center">
+            <TooltipTrigger>
+              <a href="https://peerlist.io/saransh_bangar/project/saranshs-personal-website" target="_blank" rel="noreferrer">
+                <Image
+                  src={`/peerlist/peerlist-launchpad-${theme === "dark" ? "dark" : "light"}.svg`}
+                  alt="Saransh's Personal Website"
+                  width={180}
+                  height={50}
+                />
+              </a>
+            </TooltipTrigger>
+            <TooltipContent>
+              <Image
+                src={`/peerlist/peerlist-supporter-${theme === "dark" ? "dark" : "light"}.png`}
+                alt="Peerlist Supporter"
+                width={100}
+                height={100}
+                className="w-48 object-contain"
+              />
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </ConfettiButton>
       <div className="flex items-center space-x-4">
         <TooltipProvider openDelay={300} closeDelay={150} transition={{ type: "spring", stiffness: 300, damping: 25 }}>
