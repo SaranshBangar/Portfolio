@@ -7,6 +7,15 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
+      role: "Technical Apprentice",
+      company: "Morgan Stanley",
+      period: "Aug 2025 - Present",
+      bulletPoints: [],
+      link: "https://www.morganstanley.com",
+      companyLogo: "/morgan_stanley_logo.png",
+    },
+    {
+      id: 2,
       role: "Software Engineer Intern",
       company: "Erino",
       period: "Dec 2024 - Feb 2025",
@@ -19,19 +28,6 @@ const Experience = () => {
       companyLogo: "/erino_logo.png",
     },
     {
-      id: 2,
-      role: "Technical Lead",
-      company: "Founders Club, SRMIST",
-      period: "Oct 2023 - Present",
-      bulletPoints: [
-        "Led a team of developers to create and maintain web applications for various college initiatives.",
-        "Implemented modern development practices and workflows to improve team productivity.",
-        "Mentored junior developers and conducted code reviews to ensure high code quality standards.",
-      ],
-      link: "https://www.thefoundersclub.in/",
-      companyLogo: "/founders_club_logo.jpg",
-    },
-    {
       id: 3,
       role: "Fullstack Developer Intern",
       company: "Fuelemy",
@@ -41,7 +37,7 @@ const Experience = () => {
         "Diagnosed and resolved frontend bugs, reducing reported issues by 35% and improving application stability.",
         "Developed responsive web applications with cross-browser compatibility, ensuring consistent user experience across devices.",
       ],
-      link: "/",
+      link: "https://www.linkedin.com/company/fuelemy/",
       companyLogo: "/fuelemy_logo.png",
     },
     {
@@ -56,6 +52,19 @@ const Experience = () => {
       ],
       link: "https://www.linkedin.com/company/getfalcon/",
       companyLogo: "/falcon_ai_logo.png",
+    },
+    {
+      id: 5,
+      role: "Technical Advisor",
+      company: "Founders Club, SRMIST",
+      period: "Oct 2023 - Present",
+      bulletPoints: [
+        "Led a team of developers to create and maintain web applications for various college initiatives.",
+        "Implemented modern development practices and workflows to improve team productivity.",
+        "Mentored junior developers and conducted code reviews to ensure high code quality standards.",
+      ],
+      link: "https://www.thefoundersclub.in/",
+      companyLogo: "/founders_club_logo.jpg",
     },
   ];
 
