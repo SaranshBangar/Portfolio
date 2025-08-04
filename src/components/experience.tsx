@@ -12,7 +12,7 @@ const Experience = () => {
       period: "Aug 2025 - Present",
       bulletPoints: [],
       link: "https://www.morganstanley.com",
-      companyLogo: "/morgan_stanley_logo.png",
+      companyLogo: "/company_logos/morgan_stanley_logo.png",
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ const Experience = () => {
         "Implemented performance optimization techniques, reducing component render times by 20%.",
       ],
       link: "https://erino.io/",
-      companyLogo: "/erino_logo.png",
+      companyLogo: "/company_logos/erino_logo.png",
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ const Experience = () => {
         "Developed responsive web applications with cross-browser compatibility, ensuring consistent user experience across devices.",
       ],
       link: "https://www.linkedin.com/company/fuelemy/",
-      companyLogo: "/fuelemy_logo.png",
+      companyLogo: "/company_logos/fuelemy_logo.png",
     },
     {
       id: 4,
@@ -51,7 +51,7 @@ const Experience = () => {
         "Enhanced user experience by optimizing frontend rendering and improving UI consistency across devices.",
       ],
       link: "https://www.linkedin.com/company/getfalcon/",
-      companyLogo: "/falcon_ai_logo.png",
+      companyLogo: "/company_logos/falcon_ai_logo.png",
     },
     {
       id: 5,
@@ -64,7 +64,7 @@ const Experience = () => {
         "Mentored junior developers and conducted code reviews to ensure high code quality standards.",
       ],
       link: "https://www.thefoundersclub.in/",
-      companyLogo: "/founders_club_logo.jpg",
+      companyLogo: "/company_logos/founders_club_logo.jpg",
     },
   ];
 
