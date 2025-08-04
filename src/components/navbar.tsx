@@ -34,11 +34,6 @@ const NavBar = () => {
       href: "https://leetcode.com/u/SaranshBangar/",
       label: "LeetCode",
     },
-    {
-      icon: <Mail className="size-5" />,
-      href: "mailto:saranshbangad@gmail.com",
-      label: "Email",
-    },
   ];
 
   const handleThemeChange = (event: React.MouseEvent) => {
