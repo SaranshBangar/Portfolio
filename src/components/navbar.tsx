@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { ConfettiButton } from "./ui/confetti";
+import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { FileUser, Github, Linkedin, Mail, Moon, Sun, Bird, Codepen } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -9,9 +8,11 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
+import { LinkPreview } from "./ui/link-preview";
 
 const NavBar = () => {
   const { theme, setTheme } = useTheme();
+  const [showUpvote, setShowUpvote] = useState(false);
 
   const socialLinks = [
     {
@@ -48,37 +49,26 @@ const NavBar = () => {
 
   return (
     <header className="container mx-auto z-[60] px-4 py-4 flex justify-between items-center bg-white dark:bg-black">
-      <ConfettiButton
-        options={{
-          get angle() {
-            return 270 + Math.random() * 90;
-          },
-        }}
-      >
-        <TooltipProvider openDelay={100}>
-          <Tooltip side="bottom" sideOffset={8} align="center">
-            <TooltipTrigger>
-              <a href="https://peerlist.io/saransh_bangar/project/saranshs-personal-website" target="_blank" rel="noreferrer">
-                <Image
-                  src={`/peerlist/peerlist-launchpad-${theme === "dark" ? "dark" : "light"}.svg`}
-                  alt="Saransh's Personal Website"
-                  width={180}
-                  height={50}
-                />
-              </a>
-            </TooltipTrigger>
-            <TooltipContent>
-              <Image
-                src={`/peerlist/peerlist-supporter-${theme === "dark" ? "dark" : "light"}.png`}
-                alt="Peerlist Supporter"
-                width={100}
-                height={100}
-                className="w-48 object-contain"
-              />
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </ConfettiButton>
+      <LinkPreview url="https://peerlist.io/saransh_bangar/project/saranshs-personal-website">
+        <a
+          href="https://peerlist.io/saransh_bangar/project/saranshs-personal-website"
+          target="_blank"
+          rel="noreferrer"
+          className="transition-all duration-300 ease-in-out"
+          onMouseEnter={() => setShowUpvote(true)}
+          onMouseLeave={() => setShowUpvote(false)}
+        >
+          <Image
+            src={`https://peerlist.io/api/v1/projects/embed/PRJHBARD8OJ96EPMA3EAAE998RKEDQ?showUpvote=${showUpvote}&theme=${
+              theme === "dark" ? "dark" : "light"
+            }`}
+            alt="Saransh's Personal Website"
+            width={showUpvote ? 218 : 180}
+            height={showUpvote ? 50 : 50}
+          />
+        </a>
+      </LinkPreview>
+
       <div className="flex items-center space-x-4">
         <TooltipProvider openDelay={300} closeDelay={150} transition={{ type: "spring", stiffness: 300, damping: 25 }}>
           {socialLinks.map((link, index) => (

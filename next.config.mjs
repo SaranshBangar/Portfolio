@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    dangerouslyAllowSVG: true,
     domains: ["images.unsplash.com", "res.cloudinary.com", "www.google.com", "api.microlink.io", "peerlist.io"],
   },
   typescript: {
