@@ -10,12 +10,9 @@ import Header from "@/components/header";
 import ParticlesBackground from "@/components/particles-background";
 import Connect from "@/components/connect";
 import { StickyBanner } from "@/components/ui/sticky-banner";
-import { useTheme } from "next-themes";
 import { LinkPreview } from "@/components/ui/link-preview";
 
 export default function Resume() {
-  const { theme } = useTheme();
-
   return (
     <div className="min-h-screen bg-background text-foreground transition-colors duration-300">
       <StickyBanner className="text-white dark:text-black dark:bg-[#FFD700] bg-[#8888CC]" hideOnScroll>

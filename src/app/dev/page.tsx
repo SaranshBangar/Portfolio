@@ -12,7 +12,7 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 const page = () => {
   return (
-    <main className="flex flex-col justify-center items-center h-[100vh]">
+    <main className="flex flex-col justify-center items-center h-[100vh] dev-text-highlight">
       <section className="w-full h-[10vh] flex flex-col justify-center items-start p-4">
         <h1 className="text-2xl">Saransh Bangar</h1>
         <h2 className="text-white/80 font-thin">Software Developer</h2>

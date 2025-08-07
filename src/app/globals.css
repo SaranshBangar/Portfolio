@@ -96,6 +96,16 @@ body::-webkit-scrollbar {
   }
 }
 
+.dev-text-highlight::-moz-selection {
+  background: #4af626;
+}
+.dev-text-highlight::-webkit-selection {
+  background: #4af626;
+}
+.dev-text-highlight::selection {
+  background: #4af626;
+}
+
 ::-moz-selection {
   background: var(--selection-color);
 }
